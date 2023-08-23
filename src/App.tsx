@@ -1,7 +1,16 @@
+import { Header } from '@/components/Header';
+import { Logo } from '@/components/Logo';
+import { Title } from '@/components/Title';
+import { Input } from '@/components/Input';
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl">App run!</h1>
+      <Header>
+        <Logo />
+      </Header>
+      <Title />
+      <Input />
     </>
   );
 }
