@@ -14,6 +14,7 @@
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended",
       "plugin:react-hooks/recommended",
+      "plugin:@tanstack/eslint-plugin-query/recommended",
       "prettier"
     ],
     "overrides": [],
@@ -22,12 +23,14 @@
       "ecmaVersion": "latest",
       "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+    "plugins": ["react", "@typescript-eslint", "react-hooks", "@tanstack/query", "prettier"],
     "ignorePatterns": ["tailwind.config.js", "postcss.config.js", "vite.config.js"],
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "react/react-in-jsx-scope": "off",
+      "@tanstack/query/exhaustive-deps": "error",
+      "@tanstack/query/prefer-query-object-syntax": "error",
       "prettier/prettier": [
         "error",
         {

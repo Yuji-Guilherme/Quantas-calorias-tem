@@ -1,0 +1,18 @@
+@keyframes animation-circle {
+    50% { transform: translateY(-8px);}
+    100% { transform: translateY(0px);}
+}
+
+.circle-l {
+    animation: animation-circle 1s infinite;
+}
+
+.circle-c {
+    animation: animation-circle 1s infinite;
+    animation-delay: 0.1s;
+}
+
+.circle-r {
+    animation: animation-circle 1s infinite;
+    animation-delay: 0.3s;
+}
