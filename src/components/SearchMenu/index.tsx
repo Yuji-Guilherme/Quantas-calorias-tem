@@ -1,22 +1,26 @@
 import { Loading } from './Loading';
-import { useData } from './hook';
+import { MenuOption } from './MenuOption';
+import { useMenu } from './hook';
+import { Food } from '@/types';
 
 import { ComponentProps } from 'react';
 
 import './style.css';
 
 type SearchMenuProps = {
-  showMenu: boolean;
+  data: Food[] | undefined;
+  isLoading: boolean;
+  isError: boolean;
 } & ComponentProps<'div'>;
 
-function SearchMenu({ showMenu, ...props }: SearchMenuProps) {
-  const { isLoading, isError, data } = useData();
+function SearchMenu({ data, isLoading, isError, ...props }: SearchMenuProps) {
+  const { menuIsOpen, handleItemClick } = useMenu();
 
   return (
     <div
       {...props}
-      className="hidden w-[588px] bg-medium-blue pb-2 mt-4 data-[show=true]:block"
-      data-show={showMenu}
+      className="hidden w-[588px] bg-medium-blue pb-2 mt-4 mx-auto data-[show=true]:block"
+      data-show={menuIsOpen}
     >
       {isLoading && <Loading />}
       {isError && (
@@ -26,13 +30,17 @@ function SearchMenu({ showMenu, ...props }: SearchMenuProps) {
       )}
       {!isLoading && !isError && (
         <ul className="w-full max-h-[420px] overflow-y-auto pb-1 pr-1 scrollbar__ul">
-          {data?.map((food) => (
-            <li
-              className="mt-4 pr-1 pl-11 py-2 max-w-full overflow-hidden text-ellipsis bg-transparent transition-colors hover:bg-cyan-50/30 cursor-pointer first:mt-0"
-              key={food?._id}
-            >
-              {food?.description}
+          {data?.length === 0 && (
+            <li className="mt-4 pr-1 pl-4 py-2 max-w-full text-center">
+              nenhum alimento encontrado
             </li>
+          )}
+          {data?.map((food) => (
+            <MenuOption
+              key={food._id}
+              food={food}
+              onClick={() => handleItemClick(food)}
+            />
           ))}
         </ul>
       )}

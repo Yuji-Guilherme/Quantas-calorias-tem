@@ -5,6 +5,7 @@ import { SearchTemplate } from '@/templates/SearchTemplate';
 import { queryClient } from '@/services/queryClient';
 
 import { QueryClientProvider } from '@tanstack/react-query';
+import { Card } from './components/Card';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         </Header>
         <Title />
         <SearchTemplate />
+        <Card />
       </QueryClientProvider>
     </>
   );

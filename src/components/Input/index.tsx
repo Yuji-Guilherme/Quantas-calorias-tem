@@ -1,31 +1,71 @@
 import { useInput } from './hook';
 
-import { Search, Plus } from 'lucide-react';
+import { Search, Plus, X, ChevronRight } from 'lucide-react';
 import { ComponentProps, memo } from 'react';
 
-function Input({ ...props }: ComponentProps<'form'>) {
-  const { inputRef, handleClick, handleInputChange } = useInput();
+type InputProps = {
+  addFirstFood: () => void;
+} & ComponentProps<'form'>;
+
+function Input({ addFirstFood, ...props }: InputProps) {
+  const {
+    inputRef,
+    removeBtnIsOn,
+    menuIsOpen,
+    inputFocus,
+    handleInputChange,
+    handleSubmit,
+    handleRemove,
+    handleShowMenu
+  } = useInput({ addFirstFood });
 
   return (
     <form
-      className="flex items-center w-fit h-12 border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text"
+      className="flex items-center w-full h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text"
       {...props}
     >
-      <Search className="w-[18px] stroke-2 stroke-dark-purple pointer-events-none" />
+      <Search
+        className="w-[18px] stroke-2 stroke-dark-purple"
+        onClick={() => inputFocus()}
+      />
       <input
         ref={inputRef}
-        onChange={handleInputChange}
         type="text"
         placeholder="Pesquise um alimento..."
-        className="bg-transparent outline-none w-[512px] font-medium"
+        onChange={handleInputChange}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') handleSubmit();
+        }}
+        className="bg-transparent outline-none w-full font-medium"
       />
-      <button
-        type="submit"
-        className="w-6 flex justify-center"
-        onClick={(e) => handleClick(e)}
-      >
-        <Plus className="w-[18px] stroke-3 stroke-dark-purple" />
-      </button>
+      <div className="w-auto h-fit flex items-center gap-1">
+        {removeBtnIsOn && (
+          <button
+            type="button"
+            className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1"
+            onClick={handleRemove}
+          >
+            <X className="w-[16px] stroke-2 stroke-dark-purple/60" />
+          </button>
+        )}
+        <button
+          type="submit"
+          className="w-6 flex justify-center"
+          onClick={handleSubmit}
+        >
+          <Plus className="w-[18px] stroke-3 stroke-dark-purple" />
+        </button>
+        <button
+          type="button"
+          className="w-6 flex justify-center"
+          onClick={handleShowMenu}
+        >
+          <ChevronRight
+            className="w-[18px] pt-[1px] stroke-3 stroke-dark-purple rotate-90 transition-transform data-[show=true]:-rotate-90"
+            data-show={menuIsOpen}
+          />
+        </button>
+      </div>
     </form>
   );
 }

@@ -1,18 +1,25 @@
 import Input from '@/components/Input';
 import { SearchMenu } from '@/components/SearchMenu';
-import { useShowMenu } from './hook';
+import { useSearchT } from './hook';
 
 function SearchTemplate() {
-  const { showMenu, setShowMenu } = useShowMenu();
+  const {
+    filterData,
+    isLoading,
+    isError,
+    menuIsOpen,
+    setShowMenu,
+    addFirstFood
+  } = useSearchT();
 
   return (
     <section
       onFocus={() => setShowMenu(true)}
-      onBlur={() => setShowMenu(false)}
-      className="w-fit mx-auto mt-16 px-2 pt-1 pb-2 rounded-xl focus-within:bg-medium-blue"
+      className="w-[632px] mx-auto h-auto mt-16 px-2 pt-1 pb-2 rounded-xl data-[show=true]:bg-medium-blue"
+      data-show={menuIsOpen}
     >
-      <Input />
-      <SearchMenu showMenu={showMenu} />
+      <Input addFirstFood={addFirstFood} />
+      <SearchMenu data={filterData} isLoading={isLoading} isError={isError} />
     </section>
   );
 }
