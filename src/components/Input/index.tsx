@@ -1,26 +1,20 @@
+import { useInput } from './hook';
+
 import { Search, Plus } from 'lucide-react';
-import { useRef } from 'react';
+import { ComponentProps, memo } from 'react';
 
-function Input() {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    console.log('click');
-  };
-
-  const inputFocus = () => {
-    inputRef?.current?.focus();
-  };
+function Input({ ...props }: ComponentProps<'form'>) {
+  const { inputRef, handleClick, handleInputChange } = useInput();
 
   return (
     <form
-      onClick={() => inputFocus()}
       className="flex items-center w-fit h-12 border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text"
+      {...props}
     >
       <Search className="w-[18px] stroke-2 stroke-dark-purple pointer-events-none" />
       <input
         ref={inputRef}
+        onChange={handleInputChange}
         type="text"
         placeholder="Pesquise um alimento..."
         className="bg-transparent outline-none w-[512px] font-medium"
@@ -36,4 +30,4 @@ function Input() {
   );
 }
 
-export { Input };
+export default memo(Input);

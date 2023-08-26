@@ -13,7 +13,8 @@
     "@tanstack/react-query": "^4.33.0",
     "lucide-react": "^0.268.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.32.5",

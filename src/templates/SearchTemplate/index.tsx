@@ -1,4 +1,4 @@
-import { Input } from '@/components/Input';
+import Input from '@/components/Input';
 import { SearchMenu } from '@/components/SearchMenu';
 import { useShowMenu } from './hook';
 

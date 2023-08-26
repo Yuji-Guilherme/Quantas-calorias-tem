@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 const useShowMenu = () => {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
-
+  const [showMenu, setShowMenu] = useState(false);
   return { showMenu, setShowMenu };
 };
 

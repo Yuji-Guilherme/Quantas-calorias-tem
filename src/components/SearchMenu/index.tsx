@@ -1,5 +1,5 @@
 import { Loading } from './Loading';
-import { useSearchMenu } from './hook';
+import { useData } from './hook';
 
 import { ComponentProps } from 'react';
 
@@ -10,7 +10,7 @@ type SearchMenuProps = {
 } & ComponentProps<'div'>;
 
 function SearchMenu({ showMenu, ...props }: SearchMenuProps) {
-  const { isError, isLoading, data } = useSearchMenu();
+  const { isLoading, isError, data } = useData();
 
   return (
     <div
@@ -29,9 +29,9 @@ function SearchMenu({ showMenu, ...props }: SearchMenuProps) {
           {data?.map((food) => (
             <li
               className="mt-4 pr-1 pl-11 py-2 max-w-full overflow-hidden text-ellipsis bg-transparent transition-colors hover:bg-cyan-50/30 cursor-pointer first:mt-0"
-              key={food._id}
+              key={food?._id}
             >
-              {food.description}
+              {food?.description}
             </li>
           ))}
         </ul>
