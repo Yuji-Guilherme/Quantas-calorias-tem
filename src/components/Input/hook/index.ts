@@ -1,24 +1,32 @@
 import { useSearchStore } from '@/store/search';
-import { useShowMenuStore } from '@/store/showMenu';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 type UseInputProps = {
   addFirstFood: () => void;
+  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  menuIsOpen: boolean;
 };
 
-const useInput = ({ addFirstFood }: UseInputProps) => {
+const useInput = ({
+  addFirstFood,
+  setMenuIsOpen,
+  menuIsOpen
+}: UseInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [removeBtnIsOn, setRemoveBtnIsOn] = useState(false);
 
   const {
+    state: { searchFood },
     actions: { setSearch }
   } = useSearchStore();
 
-  const {
-    state: { menuIsOpen },
-    actions: { setShowMenu }
-  } = useShowMenuStore();
+  useEffect(() => {
+    if (searchFood === '') {
+      inputRef.current!.value = '';
+      setRemoveBtnIsOn(false);
+    }
+  }, [searchFood]);
 
   const inputFocus = () => {
     inputRef?.current?.focus();
@@ -26,11 +34,6 @@ const useInput = ({ addFirstFood }: UseInputProps) => {
 
   const inputBlur = () => {
     inputRef?.current?.blur();
-  };
-
-  const inputClear = () => {
-    inputRef.current!.value = '';
-    setSearch('');
   };
 
   const verifyInputEmpty = (value: string) => {
@@ -56,28 +59,26 @@ const useInput = ({ addFirstFood }: UseInputProps) => {
     if (inputRef?.current?.value.trim() === '') return;
     inputBlur();
     addFirstFood();
-    inputClear();
-    setShowMenu(false);
+    setSearch('');
+    setMenuIsOpen(false);
   };
 
   const handleRemove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    inputClear();
+    setSearch('');
     inputFocus();
-    setRemoveBtnIsOn(false);
   };
 
   const handleShowMenu = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setShowMenu(!menuIsOpen);
+    setMenuIsOpen(!menuIsOpen);
   };
 
   return {
     inputRef,
     removeBtnIsOn,
-    menuIsOpen,
     inputFocus,
     handleInputChange,
     handleSubmit,

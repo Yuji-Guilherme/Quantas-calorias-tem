@@ -1,22 +1,18 @@
 import { fetchFoods } from '@/services/fetch';
 import { useSearchStore } from '@/store/search';
 import { useFoodStore } from '@/store/food';
-import { useShowMenuStore } from '@/store/showMenu';
 import { filterFoodArrayByDesc } from '@/functions';
 
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const useSearchT = () => {
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ['foods'],
     queryFn: fetchFoods
   });
-
-  const {
-    state: { menuIsOpen },
-    actions: { setShowMenu }
-  } = useShowMenuStore();
-
   const {
     actions: { addFood }
   } = useFoodStore();
@@ -39,7 +35,7 @@ const useSearchT = () => {
     isLoading,
     isError,
     menuIsOpen,
-    setShowMenu,
+    setMenuIsOpen,
     addFirstFood
   };
 };

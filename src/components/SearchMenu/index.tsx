@@ -11,10 +11,19 @@ type SearchMenuProps = {
   data: Food[] | undefined;
   isLoading: boolean;
   isError: boolean;
+  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  menuIsOpen: boolean;
 } & ComponentProps<'div'>;
 
-function SearchMenu({ data, isLoading, isError, ...props }: SearchMenuProps) {
-  const { menuIsOpen, handleItemClick } = useMenu();
+function SearchMenu({
+  data,
+  isLoading,
+  isError,
+  setMenuIsOpen,
+  menuIsOpen,
+  ...props
+}: SearchMenuProps) {
+  const { handleItemClick } = useMenu({ setMenuIsOpen });
 
   return (
     <div

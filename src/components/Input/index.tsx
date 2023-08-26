@@ -5,19 +5,25 @@ import { ComponentProps, memo } from 'react';
 
 type InputProps = {
   addFirstFood: () => void;
+  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  menuIsOpen: boolean;
 } & ComponentProps<'form'>;
 
-function Input({ addFirstFood, ...props }: InputProps) {
+function Input({
+  addFirstFood,
+  setMenuIsOpen,
+  menuIsOpen,
+  ...props
+}: InputProps) {
   const {
     inputRef,
     removeBtnIsOn,
-    menuIsOpen,
     inputFocus,
     handleInputChange,
     handleSubmit,
     handleRemove,
     handleShowMenu
-  } = useInput({ addFirstFood });
+  } = useInput({ addFirstFood, setMenuIsOpen, menuIsOpen });
 
   return (
     <form

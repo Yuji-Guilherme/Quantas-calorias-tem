@@ -1,24 +1,28 @@
-import { useShowMenuStore } from '@/store/showMenu';
 import { useFoodStore } from '@/store/food';
+import { useSearchStore } from '@/store/search';
 
 import { Food } from '@/types';
 
-const useMenu = () => {
+type UseMenuProps = {
+  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const useMenu = ({ setMenuIsOpen }: UseMenuProps) => {
   const {
     actions: { addFood }
   } = useFoodStore();
 
   const {
-    state: { menuIsOpen },
-    actions: { setShowMenu }
-  } = useShowMenuStore();
+    actions: { setSearch }
+  } = useSearchStore();
 
   const handleItemClick = (food: Food) => {
+    setSearch('');
     addFood(food);
-    setShowMenu(false);
+    setMenuIsOpen(false);
   };
 
-  return { menuIsOpen, handleItemClick };
+  return { handleItemClick };
 };
 
 export { useMenu };

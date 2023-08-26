@@ -8,18 +8,28 @@ function SearchTemplate() {
     isLoading,
     isError,
     menuIsOpen,
-    setShowMenu,
+    setMenuIsOpen,
     addFirstFood
   } = useSearchT();
 
   return (
     <section
-      onFocus={() => setShowMenu(true)}
+      onFocus={() => setMenuIsOpen(true)}
       className="w-[632px] mx-auto h-auto mt-16 px-2 pt-1 pb-2 rounded-xl data-[show=true]:bg-medium-blue"
       data-show={menuIsOpen}
     >
-      <Input addFirstFood={addFirstFood} />
-      <SearchMenu data={filterData} isLoading={isLoading} isError={isError} />
+      <Input
+        addFirstFood={addFirstFood}
+        setMenuIsOpen={setMenuIsOpen}
+        menuIsOpen={menuIsOpen}
+      />
+      <SearchMenu
+        data={filterData}
+        isLoading={isLoading}
+        isError={isError}
+        setMenuIsOpen={setMenuIsOpen}
+        menuIsOpen={menuIsOpen}
+      />
     </section>
   );
 }
