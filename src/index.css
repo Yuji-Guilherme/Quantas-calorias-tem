@@ -32,4 +32,13 @@
         mask-image: url('./assets/logo.svg');
         mask-size: cover;
     }
+    .card_info {
+        @apply h-fit mt-6 flex flex-col items-center justify-center;
+    }
+    .card_info_number {
+        @apply text-2xl font-semibold text-dark-purple font-number;
+    }
+    .card_info_desc {
+        @apply text-lg font-medium text-medium-gray;
+    }
 }

@@ -11,5 +11,5 @@ export interface StateFoodStore {
 
 export interface ActionsFoodStore {
   addFood: (food: Food) => void;
-  removeFood: (foodNumber: number) => void;
+  removeFood: (foodId: string) => void;
 }

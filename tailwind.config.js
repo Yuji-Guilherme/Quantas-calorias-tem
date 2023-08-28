@@ -11,6 +11,7 @@ export default {
       'light-blue': '#E1EFEF',
       'medium-blue': '#D1E0E0',
       'dark-purple': '#1A1921',
+      'medium-gray': '#2B2A36',
       current: 'currentColor',
       black: colors.black,
       white: colors.white,
@@ -20,7 +21,9 @@ export default {
       yellow: colors.yellow,
       sky: colors.sky,
       zinc: colors.zinc,
-      cyan: colors.cyan
+      cyan: colors.cyan,
+      rose: colors.rose,
+      red: colors.red
     },
     fontFamily: {
       'number': ['Poppins', 'sans-serif']
@@ -31,7 +34,10 @@ export default {
       },
       strokeWidth: {
         '3': '3px',
-      }
+      },
+      gridTemplateRows: {
+        'card': '30px minmax(0, 1fr)',
+      },
     },
   },
   plugins: [],

@@ -1,4 +1,5 @@
 import { UseFoodStore } from './types';
+import { createId } from '@/functions';
 
 import { create } from 'zustand';
 
@@ -9,12 +10,12 @@ const useFoodStore = create<UseFoodStore>((set) => ({
   actions: {
     addFood: (food) =>
       set((state) => ({
-        state: { foods: [...state.state.foods, food] }
+        state: { foods: [...state.state.foods, { ...food, _id: createId() }] }
       })),
-    removeFood: (foodNumber) =>
+    removeFood: (foodId) =>
       set((state) => ({
         state: {
-          foods: state.state.foods.filter((food) => food.number !== foodNumber)
+          foods: state.state.foods.filter((food) => food._id !== foodId)
         }
       }))
   }
