@@ -2,7 +2,7 @@ import { filterFoodArrayByDesc } from './filterFoodArrayByDesc';
 import { percentageCalc } from './percentageCalc';
 import { pointToComma } from './pointToComma';
 import { verifyUnderFourOrOverNinety } from './verifyUnderFourOrOverNinety';
-import { multiplyTo100DivideByVar } from './multiplyTo100DivideByVar';
+import { multiplyAndDivideBy100 } from './multiplyAndDivideBy100';
 import { createId } from './createId';
 
 export {
@@ -10,6 +10,6 @@ export {
   percentageCalc,
   pointToComma,
   verifyUnderFourOrOverNinety,
-  multiplyTo100DivideByVar,
+  multiplyAndDivideBy100,
   createId
 };

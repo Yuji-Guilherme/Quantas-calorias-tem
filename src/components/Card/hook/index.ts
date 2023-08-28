@@ -1,6 +1,6 @@
 import { Food } from '@/types';
 import {
-  multiplyTo100DivideByVar,
+  multiplyAndDivideBy100,
   percentageCalc,
   pointToComma,
   verifyUnderFourOrOverNinety
@@ -36,10 +36,7 @@ const useCard = ({
 
   const gramsNumber = parseInt(grams);
   const [carbNumber, fatNumber, proteinNumber, fiberNumber, caloriesNumber] =
-    multiplyTo100DivideByVar(
-      [carbs, fat, protein, fiber, calories],
-      gramsNumber
-    );
+    multiplyAndDivideBy100([carbs, fat, protein, fiber, calories], gramsNumber);
 
   const handleCalSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditGrams(false);
