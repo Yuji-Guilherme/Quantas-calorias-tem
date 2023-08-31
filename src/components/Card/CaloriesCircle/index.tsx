@@ -40,38 +40,42 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
           cy="92.639908"
           r="20"
         />
-        <circle
-          style={{
-            fill: 'none',
-            stroke: second.color,
-            strokeWidth: '2',
-            strokeDasharray: '124',
-            strokeDashoffset: second.number,
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            paintOrder: 'markers stroke fill'
-          }}
-          id="path2"
-          cx="103.12686"
-          cy="92.639908"
-          r="20"
-        />
-        <circle
-          style={{
-            fill: 'none',
-            stroke: first.color,
-            strokeWidth: '2',
-            strokeDasharray: '124',
-            strokeDashoffset: first.number,
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            paintOrder: 'markers stroke fill'
-          }}
-          id="path3"
-          cx="103.12686"
-          cy="92.639908"
-          r="20"
-        />
+        {second.number && (
+          <circle
+            style={{
+              fill: 'none',
+              stroke: second.color,
+              strokeWidth: '2',
+              strokeDasharray: '124',
+              strokeDashoffset: second.number,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              paintOrder: 'markers stroke fill'
+            }}
+            id="path2"
+            cx="103.12686"
+            cy="92.639908"
+            r="20"
+          />
+        )}
+        {first.number && (
+          <circle
+            style={{
+              fill: 'none',
+              stroke: first.color,
+              strokeWidth: '2',
+              strokeDasharray: '124',
+              strokeDashoffset: first.number,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              paintOrder: 'markers stroke fill'
+            }}
+            id="path3"
+            cx="103.12686"
+            cy="92.639908"
+            r="20"
+          />
+        )}
       </g>
     </svg>
   );

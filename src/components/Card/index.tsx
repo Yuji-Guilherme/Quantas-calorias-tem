@@ -26,7 +26,9 @@ function Card({
     handleRemoveCard
   } = useCard({ carbs, fat, protein, fiber, calories, _id });
 
-  const { circleSizesAndColors } = useCaloriesCircle({ ...macroPercentages });
+  const { circleSizesAndColors, circleSizeEmpty } = useCaloriesCircle({
+    ...macroPercentages
+  });
 
   return (
     <li
@@ -116,7 +118,9 @@ function Card({
         </p>
         <p className="card_info_desc z-1">cal</p>
         <span className="absolute z-0">
-          <CaloriesCircle circleProps={circleSizesAndColors} />
+          <CaloriesCircle
+            circleProps={circleSizeEmpty || circleSizesAndColors}
+          />
         </span>
       </div>
     </li>

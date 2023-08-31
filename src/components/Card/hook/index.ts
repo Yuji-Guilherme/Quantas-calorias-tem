@@ -90,11 +90,27 @@ const useCaloriesCircle = ({ carb, fat, protein }: MacroPercentageObject) => {
   const fatObj = { number: fat.width, color: '#eab308' };
   const proteinObj = { number: protein.width, color: '#9f1239' };
 
+  const [carbValue, fatValue, proteinValue] = [
+    carb.text,
+    fat.text,
+    protein.text
+  ].map((value) => parseFloat(value));
+
   const [firstObj, secondObj, thirdObj] = compareNumbersObj([
     carbObj,
     fatObj,
     proteinObj
   ]);
+
+  if (carbValue === 100 || fatValue === 100 || proteinValue === 100) {
+    const circleSizeEmpty = {
+      first: { ...firstObj, number: 0 },
+      second: { ...secondObj, number: 0 },
+      third: thirdObj
+    };
+
+    return { circleSizeEmpty };
+  }
 
   const [firstPercentageIn62, secondPercentageIn62] = percentageCalc(
     100,
