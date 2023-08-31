@@ -1,6 +1,6 @@
 import { Food } from '@/types';
 import {
-  multiplyAndDivideBy100,
+  compareNumbersObj,
   percentageCalc,
   pointToComma,
   verifyUnderFourOrOverNinety
@@ -8,6 +8,17 @@ import {
 import { useFoodStore } from '@/store/food';
 
 import { useState } from 'react';
+
+interface MacroInPercentObject {
+  text: string;
+  width: number;
+}
+
+type MacroPercentageObject = {
+  carb: MacroInPercentObject;
+  fat: MacroInPercentObject;
+  protein: MacroInPercentObject;
+};
 
 const useCard = ({
   carbs = 0,
@@ -31,15 +42,18 @@ const useCard = ({
     pointToComma(macrosPercent);
 
   const macrosPercentInNumber = macrosPercent.map((value) => parseInt(value));
-  const [carbPercentBar, fatPercentBar, proteinPercentBar] =
+  const [carbPercentWidth, fatPercentWidth, proteinPercentWidth] =
     verifyUnderFourOrOverNinety(macrosPercentInNumber);
 
-  const gramsNumber = parseInt(grams);
-  const [carbNumber, fatNumber, proteinNumber, fiberNumber, caloriesNumber] =
-    multiplyAndDivideBy100([carbs, fat, protein, fiber, calories], gramsNumber);
+  const [carbNumber, fatNumber, proteinNumber, fiberNumber, caloriesNumber] = [
+    carbs,
+    fat,
+    protein,
+    fiber,
+    calories
+  ].map((number) => parseFloat(((number * parseInt(grams)) / 100).toFixed(1)));
 
   const handleCalSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEditGrams(false);
     setGrams(e.target.value);
   };
 
@@ -47,18 +61,23 @@ const useCard = ({
     removeFood(_id!);
   };
 
+  const macroNumbers = {
+    carb: carbNumber,
+    fat: fatNumber,
+    protein: proteinNumber,
+    fiber: fiberNumber,
+    calories: caloriesNumber
+  };
+
+  const macroPercentages = {
+    carb: { text: carbPercentText, width: carbPercentWidth },
+    fat: { text: fatPercentText, width: fatPercentWidth },
+    protein: { text: proteinPercentText, width: proteinPercentWidth }
+  } as MacroPercentageObject;
+
   return {
-    carbNumber,
-    fatNumber,
-    proteinNumber,
-    fiberNumber,
-    caloriesNumber,
-    carbPercentText,
-    proteinPercentText,
-    fatPercentText,
-    carbPercentBar,
-    proteinPercentBar,
-    fatPercentBar,
+    macroNumbers,
+    macroPercentages,
     editGrams,
     setEditGrams,
     handleCalSubmit,
@@ -66,4 +85,34 @@ const useCard = ({
   };
 };
 
-export { useCard };
+const useCaloriesCircle = ({ carb, fat, protein }: MacroPercentageObject) => {
+  const carbObj = { number: carb.width, color: '#0284c7' };
+  const fatObj = { number: fat.width, color: '#eab308' };
+  const proteinObj = { number: protein.width, color: '#9f1239' };
+
+  const [firstObj, secondObj, thirdObj] = compareNumbersObj([
+    carbObj,
+    fatObj,
+    proteinObj
+  ]);
+
+  const [firstPercentageIn62, secondPercentageIn62] = percentageCalc(
+    100,
+    [firstObj.number, secondObj.number],
+    62
+  );
+
+  const firstSize = 124 - parseInt(firstPercentageIn62);
+  const secondSize =
+    123 - (parseInt(secondPercentageIn62) + parseInt(firstPercentageIn62));
+
+  const circleSizesAndColors = {
+    first: { ...firstObj, number: firstSize },
+    second: { ...secondObj, number: secondSize },
+    third: thirdObj
+  };
+
+  return { circleSizesAndColors };
+};
+
+export { useCard, useCaloriesCircle };

@@ -14,6 +14,7 @@ export default {
       'medium-gray': '#2B2A36',
       current: 'currentColor',
       black: colors.black,
+      blue: colors.blue,
       white: colors.white,
       gray: colors.gray,
       emerald: colors.emerald,
@@ -38,6 +39,12 @@ export default {
       gridTemplateRows: {
         'card': '30px minmax(0, 1fr)',
       },
+      zIndex: {
+        '1': '1',
+      },
+      width: {
+        '49/50': '98%',
+      }
     },
   },
   plugins: [],

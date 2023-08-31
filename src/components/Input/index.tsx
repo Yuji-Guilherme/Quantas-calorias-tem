@@ -27,7 +27,7 @@ function Input({
 
   return (
     <form
-      className="flex items-center w-full h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text"
+      className="flex items-center w-49/50 h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text"
       {...props}
     >
       <Search

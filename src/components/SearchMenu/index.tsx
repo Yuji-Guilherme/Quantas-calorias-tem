@@ -28,7 +28,7 @@ function SearchMenu({
   return (
     <div
       {...props}
-      className="hidden w-[588px] bg-medium-blue pb-2 mt-4 mx-auto data-[show=true]:block"
+      className="hidden w-full absolute bg-medium-blue drop-shadow-md pt-4 pl-2 pr-3 pb-5 rounded-b-xl data-[show=true]:block"
       data-show={menuIsOpen}
     >
       {isLoading && <Loading />}
