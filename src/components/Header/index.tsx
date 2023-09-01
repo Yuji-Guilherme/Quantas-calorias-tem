@@ -6,7 +6,7 @@ type HeaderProps = {
 
 function Header({ children }: HeaderProps) {
   return (
-    <header className="w-full h-16 fixed top-0 flex items-center px-24 bg-dark-purple">
+    <header className="w-full h-16 fixed top-0 flex items-center px-24 bg-dark-purple z-20">
       {children}
     </header>
   );

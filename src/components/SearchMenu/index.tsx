@@ -38,17 +38,20 @@ function SearchMenu({
         </p>
       )}
       {!isLoading && !isError && (
-        <ul className="w-full max-h-[420px] overflow-y-auto pb-1 pr-1 scrollbar__ul">
+        <ul className="w-full max-h-[420px] overflow-y-auto p-1 scrollbar__ul">
           {data?.length === 0 && (
-            <li className="mt-4 pr-1 pl-4 py-2 max-w-full text-center">
+            <p className="mt-4 pr-1 pl-4 py-2 max-w-full text-center">
               nenhum alimento encontrado
-            </li>
+            </p>
           )}
           {data?.map((food) => (
             <MenuOption
               key={food._id}
               food={food}
-              onClick={() => handleItemClick(food)}
+              onClick={(e) => handleItemClick(food, e)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') handleItemClick(food);
+              }}
             />
           ))}
         </ul>

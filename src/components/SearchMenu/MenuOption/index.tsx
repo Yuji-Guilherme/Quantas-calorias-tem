@@ -4,16 +4,32 @@ import { ComponentProps } from 'react';
 
 type MenuOptionProps = {
   food: Food;
-} & ComponentProps<'li'>;
+} & ComponentProps<'input'>;
 
 function MenuOption({ food, ...props }: MenuOptionProps) {
   return (
-    <li
-      className="mt-4 pr-1 pl-4 py-2 max-w-full overflow-hidden text-ellipsis bg-transparent transition-colors hover:bg-cyan-50/30 cursor-pointer first:mt-0"
-      key={food._id}
-      {...props}
-    >
-      {food.description}
+    <li className="max-w-full relative rounded mt-4 mr-2 pr-1 pl-4 py-2 overflow-hidden text-ellipsis bg-transparent transition-colors hover:bg-medium-gray/10 cursor-pointer first:mt-0 focus-within:bg-medium-gray/10 focus-within:outline outline-medium-gray/30 outline-1">
+      <input
+        name="foods"
+        value={food.description}
+        type="radio"
+        id={food.description}
+        key={food._id}
+        style={{
+          all: 'unset',
+          position: 'absolute',
+          inset: 0
+        }}
+        {...props}
+      ></input>
+      <label
+        key={food.number}
+        htmlFor={food.description}
+        className="cursor-pointer"
+      >
+        {food.description}
+      </label>
+      <br />
     </li>
   );
 }

@@ -16,7 +16,11 @@ const useMenu = ({ setMenuIsOpen }: UseMenuProps) => {
     actions: { setSearch }
   } = useSearchStore();
 
-  const handleItemClick = (food: Food) => {
+  const handleItemClick = (
+    food: Food,
+    e?: React.MouseEvent<HTMLInputElement, MouseEvent>
+  ) => {
+    if (e?.detail === 0) return;
     setSearch('');
     addFood(food);
     setMenuIsOpen(false);

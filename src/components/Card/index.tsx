@@ -54,7 +54,7 @@ function Card({
             type="number"
             min={1}
             max={1000}
-            className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-transparent outline-none border border-solid border-medium-gray/50 disabled:border-none"
+            className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-medium-gray/10 outline-none border border-solid border-medium-gray/50 disabled:border-none disabled:bg-transparent"
             value={grams}
             disabled={!editGrams}
             onChange={handleCalSubmit}
