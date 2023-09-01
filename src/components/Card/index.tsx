@@ -20,6 +20,7 @@ function Card({
   const {
     macroNumbers,
     macroPercentages,
+    grams,
     editGrams,
     setEditGrams,
     handleCalSubmit,
@@ -54,7 +55,7 @@ function Card({
             min={1}
             max={1000}
             className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-transparent outline-none border border-solid border-medium-gray/50 disabled:border-none"
-            defaultValue={100}
+            value={grams}
             disabled={!editGrams}
             onChange={handleCalSubmit}
             onBlur={() => setEditGrams(false)}

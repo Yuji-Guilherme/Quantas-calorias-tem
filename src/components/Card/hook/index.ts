@@ -54,6 +54,7 @@ const useCard = ({
   ].map((number) => parseFloat(((number * parseInt(grams)) / 100).toFixed(1)));
 
   const handleCalSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (parseInt(e.target.value) > 1000) return setGrams('1000');
     setGrams(e.target.value);
   };
 
@@ -78,6 +79,7 @@ const useCard = ({
   return {
     macroNumbers,
     macroPercentages,
+    grams,
     editGrams,
     setEditGrams,
     handleCalSubmit,
