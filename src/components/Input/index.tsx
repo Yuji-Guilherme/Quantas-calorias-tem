@@ -7,12 +7,14 @@ type InputProps = {
   addFirstFood: () => void;
   setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   menuIsOpen: boolean;
+  menuRef: React.RefObject<HTMLInputElement>;
 } & ComponentProps<'form'>;
 
 function Input({
   addFirstFood,
   setMenuIsOpen,
   menuIsOpen,
+  menuRef,
   ...props
 }: InputProps) {
   const {
@@ -41,6 +43,11 @@ function Input({
         onChange={handleInputChange}
         onKeyPress={(e) => {
           if (e.key === 'Enter') handleSubmit();
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'ArrowDown') {
+            menuRef.current?.focus();
+          }
         }}
         className="bg-transparent outline-none w-full font-medium"
       />

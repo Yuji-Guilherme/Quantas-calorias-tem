@@ -7,6 +7,7 @@ function SearchTemplate() {
     filterData,
     isLoading,
     isError,
+    menuRef,
     menuIsOpen,
     setMenuIsOpen,
     addFirstFood
@@ -22,6 +23,7 @@ function SearchTemplate() {
         addFirstFood={addFirstFood}
         setMenuIsOpen={setMenuIsOpen}
         menuIsOpen={menuIsOpen}
+        menuRef={menuRef}
       />
       <SearchMenu
         data={filterData}
@@ -29,6 +31,7 @@ function SearchTemplate() {
         isError={isError}
         setMenuIsOpen={setMenuIsOpen}
         menuIsOpen={menuIsOpen}
+        menuRef={menuRef}
       />
     </section>
   );

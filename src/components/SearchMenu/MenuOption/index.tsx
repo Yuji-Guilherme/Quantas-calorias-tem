@@ -1,15 +1,19 @@
 import { Food } from '@/types';
 
-import { ComponentProps } from 'react';
+import { ComponentProps, ForwardedRef, forwardRef } from 'react';
 
 type MenuOptionProps = {
   food: Food;
 } & ComponentProps<'input'>;
 
-function MenuOption({ food, ...props }: MenuOptionProps) {
+const MenuOption = forwardRef(function MenuOption(
+  { food, ...props }: MenuOptionProps,
+  ref: ForwardedRef<HTMLInputElement>
+) {
   return (
     <li className="max-w-full relative rounded mt-4 mr-2 pr-1 pl-4 py-2 overflow-hidden text-ellipsis bg-transparent transition-colors hover:bg-medium-gray/10 cursor-pointer first:mt-0 focus-within:bg-medium-gray/10 focus-within:outline outline-medium-gray/30 outline-1">
       <input
+        ref={ref}
         name="foods"
         value={food.description}
         type="radio"
@@ -32,6 +36,6 @@ function MenuOption({ food, ...props }: MenuOptionProps) {
       <br />
     </li>
   );
-}
+});
 
 export { MenuOption };

@@ -13,6 +13,7 @@ type SearchMenuProps = {
   isError: boolean;
   setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   menuIsOpen: boolean;
+  menuRef: React.RefObject<HTMLInputElement>;
 } & ComponentProps<'div'>;
 
 function SearchMenu({
@@ -21,6 +22,7 @@ function SearchMenu({
   isError,
   setMenuIsOpen,
   menuIsOpen,
+  menuRef,
   ...props
 }: SearchMenuProps) {
   const { handleItemClick } = useMenu({ setMenuIsOpen });
@@ -44,8 +46,9 @@ function SearchMenu({
               nenhum alimento encontrado
             </p>
           )}
-          {data?.map((food) => (
+          {data?.map((food, index) => (
             <MenuOption
+              ref={index === 0 ? menuRef : null}
               key={food._id}
               food={food}
               onClick={(e) => handleItemClick(food, e)}

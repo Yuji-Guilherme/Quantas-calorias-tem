@@ -3,11 +3,12 @@ import { useSearchStore } from '@/store/search';
 import { useFoodStore } from '@/store/food';
 import { filterFoodArrayByDesc } from '@/functions';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const useSearchT = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLInputElement>(null);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['foods'],
@@ -34,6 +35,7 @@ const useSearchT = () => {
     filterData,
     isLoading,
     isError,
+    menuRef,
     menuIsOpen,
     setMenuIsOpen,
     addFirstFood
