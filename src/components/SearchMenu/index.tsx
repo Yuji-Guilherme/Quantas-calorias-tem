@@ -40,7 +40,10 @@ function SearchMenu({
         </p>
       )}
       {!isLoading && !isError && (
-        <ul className="w-full max-h-[420px] overflow-y-auto p-1 scrollbar__ul">
+        <ul
+          style={{ height: '44vh' }}
+          className="w-full max-h-[420px] overflow-y-auto p-1 scrollbar__ul"
+        >
           {data?.length === 0 && (
             <p className="mt-4 pr-1 pl-4 py-2 max-w-full text-center">
               nenhum alimento encontrado
