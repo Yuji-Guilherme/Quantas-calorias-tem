@@ -3,11 +3,12 @@ import { useSearchStore } from '@/store/search';
 import { useFoodStore } from '@/store/food';
 import { filterFoodArrayByDesc } from '@/functions';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useTransition } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const useSearchT = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
   const menuRef = useRef<HTMLInputElement>(null);
 
   const { data, isLoading, isError } = useQuery({
@@ -38,7 +39,9 @@ const useSearchT = () => {
     menuRef,
     menuIsOpen,
     setMenuIsOpen,
-    addFirstFood
+    addFirstFood,
+    isPending,
+    startTransition
   };
 };
 

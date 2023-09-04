@@ -1,9 +1,15 @@
 import './style.css';
 
-function Loading() {
+type LoadingProps = {
+  withWord?: boolean;
+};
+
+function Loading({ withWord = false }: LoadingProps) {
   return (
     <div className="w-fit mt-4 mx-auto flex items-end gap-1">
-      <p className="h-fit text-lg font-medium text-dark-purple">carregando</p>
+      {withWord && (
+        <p className="h-fit text-lg font-medium text-dark-purple">carregando</p>
+      )}
       <svg
         width="75.999992mm"
         height="16.000002mm"

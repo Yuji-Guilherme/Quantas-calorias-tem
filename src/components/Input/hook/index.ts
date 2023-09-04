@@ -5,12 +5,14 @@ import { useRef, useState, useEffect } from 'react';
 type UseInputProps = {
   addFirstFood: () => void;
   setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  transitionFn: React.TransitionStartFunction;
   menuIsOpen: boolean;
 };
 
 const useInput = ({
   addFirstFood,
   setMenuIsOpen,
+  transitionFn,
   menuIsOpen
 }: UseInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -49,7 +51,9 @@ const useInput = ({
     const { value } = e.target;
     verifyInputEmpty(value);
     if (!value.trim()) return;
-    setSearch(value);
+    transitionFn(() => {
+      setSearch(value);
+    });
   };
 
   const handleSubmit = (

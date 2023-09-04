@@ -8,11 +8,13 @@ type InputProps = {
   setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   menuIsOpen: boolean;
   menuRef: React.RefObject<HTMLInputElement>;
+  transitionFn: React.TransitionStartFunction;
 } & ComponentProps<'form'>;
 
 function Input({
   addFirstFood,
   setMenuIsOpen,
+  transitionFn,
   menuIsOpen,
   menuRef,
   ...props
@@ -25,7 +27,7 @@ function Input({
     handleSubmit,
     handleRemove,
     handleShowMenu
-  } = useInput({ addFirstFood, setMenuIsOpen, menuIsOpen });
+  } = useInput({ addFirstFood, setMenuIsOpen, menuIsOpen, transitionFn });
 
   return (
     <form

@@ -10,7 +10,9 @@ function SearchTemplate() {
     menuRef,
     menuIsOpen,
     setMenuIsOpen,
-    addFirstFood
+    addFirstFood,
+    isPending,
+    startTransition
   } = useSearchT();
 
   return (
@@ -24,6 +26,7 @@ function SearchTemplate() {
         setMenuIsOpen={setMenuIsOpen}
         menuIsOpen={menuIsOpen}
         menuRef={menuRef}
+        transitionFn={startTransition}
       />
       <SearchMenu
         data={filterData}
@@ -32,6 +35,7 @@ function SearchTemplate() {
         setMenuIsOpen={setMenuIsOpen}
         menuIsOpen={menuIsOpen}
         menuRef={menuRef}
+        searchIsLoad={isPending}
       />
     </section>
   );
