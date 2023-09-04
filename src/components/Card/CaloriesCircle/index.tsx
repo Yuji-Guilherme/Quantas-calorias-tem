@@ -18,10 +18,9 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
       version="1.1"
       id="svg1"
       style={{
-        transform: 'scaleX(-1) rotate(180deg)',
-        width: '150px',
-        height: '110px'
+        transform: 'scaleX(-1) rotate(180deg)'
       }}
+      className="w-40 h-28 md:w-32 md:h-24 md:mt-1"
     >
       <g id="layer1" transform="translate(-83.126863,-72.639906)">
         <circle

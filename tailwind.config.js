@@ -29,6 +29,10 @@ export default {
     fontFamily: {
       'number': ['Poppins', 'sans-serif']
     },
+    screens: {
+      'sm': {'min': '0px', 'max': '450px'},
+      'md': {'min': '451px', 'max': '1024px'}
+    },
     extend: {
       fontFamily: {
         'sans': ['Raleway', 'sans-serif']

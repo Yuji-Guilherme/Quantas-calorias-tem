@@ -34,27 +34,27 @@ function Card({
   return (
     <li
       {...props}
-      className="w-ull h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue first:mt-0"
+      className="w-full h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue first:mt-0 md:pl-8 md:h-44"
     >
-      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap">
+      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap md:text-lg">
         {description}
       </p>
       <button onClick={handleRemoveCard} className="w-fit justify-self-end">
-        <X />
+        <X className="md:w-5" />
       </button>
-      <div className="h-3/4 flex items-center justify-center gap-2">
+      <div className="h-3/4 flex items-center justify-center gap-2 md:gap-1">
         <button onClick={() => setEditGrams(!editGrams)}>
           <Pen
             data-active={editGrams}
-            className="w-[18px] fill-dark-purple stroke-dark-purple transition-colors data-[active=true]:fill-transparent"
+            className="w-[18px] fill-dark-purple stroke-dark-purple transition-colors data-[active=true]:fill-transparent md:w-4"
           />
         </button>
-        <div className="flex flex-col mt-4 ml-2 items-start">
+        <div className="flex flex-col mt-4 ml-2 items-start md:ml-0 md:mt-3">
           <input
             type="number"
             min={1}
             max={1000}
-            className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-medium-gray/10 outline-none border border-solid border-medium-gray/50 disabled:border-none disabled:bg-transparent"
+            className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-medium-gray/10 outline-none border border-solid border-medium-gray/50 disabled:border-none disabled:bg-transparent md:text-2xl md:w-20"
             value={grams}
             disabled={!editGrams}
             onChange={handleCalSubmit}
@@ -73,10 +73,10 @@ function Card({
         </p>
         <div className="flex items-center gap-1 mt-1">
           <span
-            className={'h-1 bg-sky-600 rounded'}
+            className="card_percentage bg-sky-600"
             style={{ width: macroPercentages.carb.width }}
           />
-          <p className="text-sky-600 font-number text-sm">
+          <p className="text-sky-600 font-number text-sm md:text-xs">
             {macroPercentages.carb.text}%
           </p>
         </div>
@@ -88,10 +88,10 @@ function Card({
         </p>
         <div className="flex items-center gap-1 mt-1">
           <span
-            className={'h-1 bg-rose-800 rounded'}
+            className="card_percentage bg-rose-800"
             style={{ width: macroPercentages.protein.width }}
           />
-          <p className="text-rose-800 font-number text-sm">
+          <p className="text-rose-800 font-number text-sm md:text-xs">
             {macroPercentages.protein.text}%
           </p>
         </div>
@@ -101,10 +101,10 @@ function Card({
         <p className="card_info_desc">gordura{macroNumbers.fat > 1 && 's'}</p>
         <div className="flex items-center gap-1 mt-1">
           <span
-            className={'h-1 bg-yellow-500 rounded'}
+            className="card_percentage bg-yellow-500"
             style={{ width: macroPercentages.fat.width }}
           />
-          <p className="text-yellow-600 font-number text-sm">
+          <p className="text-yellow-600 font-number text-sm md:text-xs">
             {macroPercentages.fat.text}%
           </p>
         </div>

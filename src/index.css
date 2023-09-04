@@ -40,9 +40,13 @@
         @apply h-fit mt-6 flex flex-col items-center justify-center;
     }
     .card_info_number {
-        @apply max-w-[100px] text-2xl font-semibold text-dark-purple font-number overflow-hidden text-ellipsis;
+        @apply max-w-[100px] text-2xl font-semibold text-dark-purple font-number overflow-hidden text-ellipsis md:text-xl;
     }
     .card_info_desc {
-        @apply text-lg font-medium text-medium-gray;
+        @apply font-medium text-lg text-medium-gray md:text-base;
+    }
+
+    .card_percentage {
+        @apply h-1 rounded max-w-[90px] md:max-w-[76px]
     }
 }

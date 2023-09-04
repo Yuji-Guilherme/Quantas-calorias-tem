@@ -8,7 +8,9 @@ function Loading({ withWord = false }: LoadingProps) {
   return (
     <div className="w-fit mt-4 mx-auto flex items-end gap-1">
       {withWord && (
-        <p className="h-fit text-lg font-medium text-dark-purple">carregando</p>
+        <p className="h-fit text-lg font-medium text-dark-purple md:text-base">
+          carregando
+        </p>
       )}
       <svg
         width="75.999992mm"
@@ -17,7 +19,7 @@ function Loading({ withWord = false }: LoadingProps) {
         version="1.1"
         id="svg1"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-4 h-5"
+        className="w-4 h-5 md:w-3 md:h-4"
       >
         <circle
           style={{

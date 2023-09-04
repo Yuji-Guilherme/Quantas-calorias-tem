@@ -7,7 +7,7 @@ function CardStack() {
   } = useFoodStore();
 
   return (
-    <ul className="mt-20 mb-10 mx-auto w-[900px]">
+    <ul className="w-[900px] mt-20 mb-10 mx-auto md:w-[820px] md:mt-16 ">
       {foods?.map((food) => <Card {...food} key={food._id} />)}
     </ul>
   );

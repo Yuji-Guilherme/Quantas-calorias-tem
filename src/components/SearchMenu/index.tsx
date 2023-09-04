@@ -38,7 +38,7 @@ function SearchMenu({
     >
       {isLoading && <Loading withWord />}
       {isError && (
-        <p className="w-fit mt-4 mx-auto text-lg font-medium text-dark-purple">
+        <p className="w-fit mt-4 mx-auto text-lg font-medium text-dark-purple md:text-sm md:mt-2">
           Ocorreu um error, tente novamente mais tarde
         </p>
       )}
@@ -46,7 +46,7 @@ function SearchMenu({
       {!isLoading && !isError && (
         <ul className="w-full h-auto max-h-[44vh] overflow-y-auto p-1 scrollbar__ul">
           {data?.length === 0 && (
-            <p className="mt-4 pr-1 pl-4 py-2 max-w-full text-center">
+            <p className="mt-4 pr-1 pl-4 py-2 max-w-full text-center md:text-sm md:mt-2">
               nenhum alimento encontrado
             </p>
           )}

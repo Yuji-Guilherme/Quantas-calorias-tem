@@ -31,7 +31,7 @@ function Input({
 
   return (
     <form
-      className="flex items-center w-49/50 h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text"
+      className="flex items-center w-49/50 h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text md:h-10"
       {...props}
     >
       <Search
@@ -51,7 +51,7 @@ function Input({
             menuRef.current?.focus();
           }
         }}
-        className="bg-transparent outline-none w-full font-medium"
+        className="bg-transparent outline-none w-full font-medium md:text-sm"
       />
       <div className="w-auto h-fit flex items-center gap-1">
         {removeBtnIsOn && (
@@ -60,7 +60,7 @@ function Input({
             className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1"
             onClick={handleRemove}
           >
-            <X className="w-[16px] stroke-2 stroke-dark-purple/60" />
+            <X className="w-[16px] stroke-2 stroke-dark-purple/60 md:w-[14px]" />
           </button>
         )}
         <button
@@ -68,7 +68,7 @@ function Input({
           className="w-6 flex justify-center"
           onClick={handleSubmit}
         >
-          <Plus className="w-[18px] stroke-3 stroke-dark-purple" />
+          <Plus className="w-[18px] stroke-3 stroke-dark-purple md:w-4" />
         </button>
         <button
           type="button"

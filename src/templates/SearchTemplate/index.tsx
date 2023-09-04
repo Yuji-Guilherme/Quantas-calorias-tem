@@ -18,7 +18,7 @@ function SearchTemplate() {
   return (
     <section
       onFocus={() => setMenuIsOpen(true)}
-      className="w-[632px] mx-auto h-auto mt-16 pt-1 rounded-t-xl relative z-10 data-[show=true]:bg-medium-blue drop-shadow-md"
+      className="w-[632px] mt-16 mx-auto h-auto pt-1 rounded-t-xl relative z-10 data-[show=true]:bg-medium-blue drop-shadow-md md:w-[520px] md:mt-14"
       data-show={menuIsOpen}
     >
       <Input
