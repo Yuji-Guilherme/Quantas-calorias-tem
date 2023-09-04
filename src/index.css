@@ -37,7 +37,7 @@
         mask-size: cover;
     }
     .card_info {
-        @apply h-fit mt-6 flex flex-col items-center justify-center sm:m-0;
+        @apply h-fit mt-6 flex flex-col items-center justify-center tablet:mt-1 sm:m-0;
     }
     .card_info_number {
         @apply max-w-[100px] text-2xl font-semibold text-dark-purple font-number overflow-hidden text-ellipsis md:text-xl sm:text-xl;

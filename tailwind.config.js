@@ -31,6 +31,8 @@ export default {
     },
     screens: {
       'sm': {'min': '0px', 'max': '450px'},
+      'tablet': {'min': '451px', 'max': '768px'},
+      'md-': {'min': '769px', 'max': '1024px'},
       'md': {'min': '451px', 'max': '1024px'}
     },
     extend: {
@@ -42,6 +44,7 @@ export default {
       },
       gridTemplateRows: {
         'card': '30px minmax(0, 1fr)',
+        'card-tablet': '30px 1fr 1fr',
         'card-sm': '28px repeat(3, 1fr)'
       },
       zIndex: {
@@ -52,6 +55,9 @@ export default {
       },
       maxWidth: {
         'xs+': '21rem',
+      },
+      minWidth: {
+        'sm': '24rem',
       }
     },
   },
