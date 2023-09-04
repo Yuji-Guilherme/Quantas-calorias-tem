@@ -35,7 +35,7 @@ function Input({
       {...props}
     >
       <Search
-        className="w-[18px] stroke-2 stroke-dark-purple sm:w-4"
+        className="w-[18px] stroke-2 stroke-dark-purple sm:w-4 sm:stroke-3"
         onClick={() => inputFocus()}
       />
       <input

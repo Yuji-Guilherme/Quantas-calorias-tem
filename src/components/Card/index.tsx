@@ -34,25 +34,25 @@ function Card({
   return (
     <li
       {...props}
-      className="w-full h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue first:mt-0 md:pl-8 md:h-44 sm:h-auto sm:grid-cols-2 sm:grid-rows-card-sm sm:pb-7 sm:px-6 sm:rounded-3xl sm:gap-y-7 sm:mt-10"
+      className="w-full h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue first:mt-0 md:pl-8 md:h-44 sm:h-[430px] sm:relative sm:grid-cols-2 sm:grid-rows-card-sm sm:py-5 sm:px-6 sm:rounded-[32px] sm:gap-y-4 sm:mt-10 sm:place-items-center"
     >
-      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap md:text-lg sm:text-base sm:col-span-2 sm:max-w-[92%] sm:pl-1">
+      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap md:text-lg sm:text-base sm:col-span-2 sm:max-w-[92%] sm:pl-1 sm:justify-self-start">
         {description}
       </p>
       <button
         onClick={handleRemoveCard}
-        className="w-fit justify-self-end sm:absolute"
+        className="w-fit justify-self-end sm:absolute sm:top-4 sm:right-4"
       >
         <X className="md:w-5 sm:w-5" />
       </button>
-      <div className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px] sm:mt-1">
+      <div className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px]s">
         <button onClick={() => setEditGrams(!editGrams)}>
           <Pen
             data-active={editGrams}
             className="w-[18px] fill-dark-purple stroke-dark-purple transition-colors data-[active=true]:fill-transparent md:w-4 sm:w-4"
           />
         </button>
-        <div className="flex flex-col mt-4 ml-2 items-start md:ml-0 md:mt-3 sm:ml-1 sm:mt-1">
+        <div className="flex flex-col mt-4 ml-2 items-start md:ml-0 md:mt-3 sm:m-0">
           <input
             type="number"
             min={1}
@@ -66,7 +66,9 @@ function Card({
               if (e.key === 'Enter') setEditGrams(false);
             }}
           />
-          <p className="card_info_desc pl-2">gramas</p>
+          <p className="card_info_desc pl-2">
+            grama{parseInt(grams) > 1 && 's'}
+          </p>
         </div>
       </div>
       <div className="card_info ml-1">
@@ -112,7 +114,7 @@ function Card({
           </p>
         </div>
       </div>
-      <div className="card_info sm:ml-2 sm:mt-1">
+      <div className="card_info sm:ml-2 sm:mb-4">
         <p className="card_info_number">{macroNumbers.fiber}g</p>
         <p className="card_info_desc">fibra{macroNumbers.fiber > 1 && 's'}</p>
       </div>

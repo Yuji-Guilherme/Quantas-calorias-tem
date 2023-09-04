@@ -49,6 +49,9 @@ export default {
       },
       width: {
         '49/50': '98%',
+      },
+      maxWidth: {
+        'xs+': '21rem',
       }
     },
   },
