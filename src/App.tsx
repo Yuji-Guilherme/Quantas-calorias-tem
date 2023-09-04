@@ -1,6 +1,5 @@
 import { queryClient } from '@/services/queryClient';
 import { Header } from '@/components/Header';
-import { Logo } from '@/components/Logo';
 import { Title } from '@/components/Title';
 import { SearchTemplate } from '@/templates/SearchTemplate';
 import { CardStack } from './templates/CardStack';
@@ -11,9 +10,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Header>
-          <Logo />
-        </Header>
+        <Header />
         <Title />
         <SearchTemplate />
         <CardStack />

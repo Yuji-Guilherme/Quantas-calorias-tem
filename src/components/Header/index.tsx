@@ -1,13 +1,19 @@
-import { ReactNode } from 'react';
+import { Logo } from './Logo';
 
-type HeaderProps = {
-  children: ReactNode;
-};
+import { Github } from 'lucide-react';
 
-function Header({ children }: HeaderProps) {
+function Header() {
   return (
-    <header className="w-full h-16 fixed top-0 flex items-center px-24 bg-dark-purple z-20">
-      {children}
+    <header className="w-full h-16 fixed top-0 flex items-center justify-between px-24 bg-dark-purple z-20">
+      <Logo />
+      <div>
+        <a
+          className="group"
+          href="https://github.com/Yuji-Guilherme/quantas-calorias"
+        >
+          <Github className="h-7 w-7 stroke-light-blue fill-transparent transition-colors group-hover:fill-light-blue" />
+        </a>
+      </div>
     </header>
   );
 }
