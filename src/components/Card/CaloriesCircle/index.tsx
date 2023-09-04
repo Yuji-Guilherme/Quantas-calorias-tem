@@ -20,7 +20,7 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
       style={{
         transform: 'scaleX(-1) rotate(180deg)'
       }}
-      className="w-40 h-28 md:w-32 md:h-24 md:mt-1"
+      className="w-40 h-28 md:w-32 md:h-24 md:mt-1 sm:w-32 sm:h-24 sm:mt-[7px]"
     >
       <g id="layer1" transform="translate(-83.126863,-72.639906)">
         <circle

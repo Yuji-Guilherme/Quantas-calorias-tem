@@ -42,6 +42,7 @@ export default {
       },
       gridTemplateRows: {
         'card': '30px minmax(0, 1fr)',
+        'card-sm': '28px repeat(3, 1fr)'
       },
       zIndex: {
         '1': '1',
