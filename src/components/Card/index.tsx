@@ -34,22 +34,22 @@ function Card({
   return (
     <li
       {...props}
-      className="w-full h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue first:mt-0 md:pl-8 md-:h-44 tablet:h-auto tablet:relative tablet:pb-6 tablet:gap-y-8 tablet:grid-cols-3 tablet:grid-rows-card-tablet tablet:place-items-center tablet:rounded-[28px] sm:h-[430px] sm:relative sm:grid-cols-2 sm:grid-rows-card-sm sm:py-5 sm:px-6 sm:rounded-[32px] sm:gap-y-4 sm:mt-10 sm:place-items-center"
+      className="w-full h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue dark:bg-dark-purple first:mt-0 md:pl-8 md-:h-44 tablet:h-auto tablet:relative tablet:pb-6 tablet:gap-y-8 tablet:grid-cols-3 tablet:grid-rows-card-tablet tablet:place-items-center tablet:rounded-[28px] sm:h-[430px] sm:relative sm:grid-cols-2 sm:grid-rows-card-sm sm:py-5 sm:px-6 sm:rounded-[32px] sm:gap-y-4 sm:mt-10 sm:place-items-center"
     >
-      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap md:text-lg tablet:col-span-3 tablet:justify-self-start tablet:max-w-[97%]  sm:text-base sm:col-span-2 sm:max-w-[92%] sm:pl-1 t sm:justify-self-start">
+      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap dark:text-medium-blue md:text-lg tablet:col-span-3 tablet:justify-self-start tablet:max-w-[97%]  sm:text-base sm:col-span-2 sm:max-w-[92%] sm:pl-1 t sm:justify-self-start">
         {description}
       </p>
       <button
         onClick={handleRemoveCard}
         className="w-fit justify-self-end tablet:absolute tablet:top-4 tablet:right-5 sm:absolute sm:top-4 sm:right-4"
       >
-        <X className="md:w-5 sm:w-5" />
+        <X className="stroke-dark-purple dark:stroke-medium-blue md:w-5 sm:w-5" />
       </button>
       <div className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px]s">
         <button onClick={() => setEditGrams(!editGrams)}>
           <Pen
             data-active={editGrams}
-            className="w-[18px] fill-dark-purple stroke-dark-purple transition-colors data-[active=true]:fill-transparent md:w-4 sm:w-4"
+            className="w-[18px] fill-dark-purple stroke-dark-purple dark:stroke-medium-blue dark:fill-medium-blue transition-colors data-[active=true]:fill-transparent dark:data-[active=true]:fill-transparent md:w-4 sm:w-4"
           />
         </button>
         <div className="flex flex-col mt-4 ml-2 items-start md:ml-0 md-:mt-3 tablet:mt-0 sm:m-0">
@@ -57,7 +57,7 @@ function Card({
             type="number"
             min={1}
             max={1000}
-            className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-medium-gray/10 outline-none border border-solid border-medium-gray/50 disabled:border-none disabled:bg-transparent md:text-2xl md:w-20 sm:text-2xl sm:max-w-[80px]"
+            className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-medium-gray/10 dark:bg-medium-blue/5 outline-none border border-solid border-medium-gray/50 dark:border-light-blue/50 disabled:border-none disabled:bg-transparent dark:disabled:bg-transparent dark:text-medium-blue md:text-2xl md:w-20 sm:text-2xl sm:max-w-[80px]"
             value={grams}
             disabled={!editGrams}
             onChange={handleCalSubmit}

@@ -8,7 +8,7 @@ function Loading({ withWord = false }: LoadingProps) {
   return (
     <div className="w-fit mt-4 mx-auto flex items-end gap-1 md:mt-2 sm:mt-0">
       {withWord && (
-        <p className="h-fit text-lg font-medium text-dark-purple md:text-base sm:text-sm">
+        <p className="h-fit text-lg font-medium text-dark-purple md:text-base sm:text-sm dark:text-sky-50">
           carregando
         </p>
       )}
@@ -23,8 +23,6 @@ function Loading({ withWord = false }: LoadingProps) {
       >
         <circle
           style={{
-            fill: '#000000',
-            stroke: '#ffffff',
             strokeWidth: '0',
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -34,12 +32,10 @@ function Loading({ withWord = false }: LoadingProps) {
           cx="8.000001"
           cy="8.0000019"
           r="7.9999995"
-          className="circle-l fill-dark-purple"
+          className="circle-l fill-dark-purple dark:fill-sky-50"
         />
         <circle
           style={{
-            fill: '#000000',
-            stroke: '#ffffff',
             strokeWidth: '0',
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -49,12 +45,10 @@ function Loading({ withWord = false }: LoadingProps) {
           cx="38"
           cy="8.0000019"
           r="7.9999995"
-          className="circle-c fill-dark-purple"
+          className="circle-c fill-dark-purple dark:fill-sky-50"
         />
         <circle
           style={{
-            fill: '#000000',
-            stroke: '#ffffff',
             strokeWidth: '0',
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -64,7 +58,7 @@ function Loading({ withWord = false }: LoadingProps) {
           cx="68"
           cy="8.0000019"
           r="7.9999995"
-          className="circle-r fill-dark-purple"
+          className="circle-r fill-dark-purple  dark:fill-sky-50"
         />
       </svg>
     </div>

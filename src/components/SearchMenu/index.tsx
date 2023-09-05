@@ -33,7 +33,7 @@ function SearchMenu({
   return (
     <div
       {...props}
-      className="hidden w-full absolute bg-medium-blue drop-shadow-md pt-4 pl-2 pr-3 pb-5 rounded-b-xl data-[show=true]:block sm:rounded-b-md sm:py-3"
+      className="hidden w-full absolute bg-medium-blue drop-shadow-md pt-4 pl-2 pr-3 pb-5 rounded-b-xl dark:bg-dark-gray data-[show=true]:block sm:rounded-b-md sm:py-3"
       data-show={menuIsOpen}
     >
       {isLoading && <Loading withWord />}

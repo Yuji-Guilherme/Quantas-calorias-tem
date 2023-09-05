@@ -1,6 +1,6 @@
 import { getLocalStorage, setLocalStorage } from '@/functions';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -12,16 +12,18 @@ const useTheme = () => {
 
   const [theme, setTheme] = useState<Theme>(initialValue());
 
-  const handleTheme = () => {
+  useEffect(() => {
     if (theme === 'light') {
-      document.documentElement.classList.add('dark');
-      setLocalStorage('theme', 'dark');
-      setTheme('dark');
-    } else {
       document.documentElement.classList.remove('dark');
       setLocalStorage('theme', 'light');
-      setTheme('light');
+    } else {
+      document.documentElement.classList.add('dark');
+      setLocalStorage('theme', 'dark');
     }
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return {

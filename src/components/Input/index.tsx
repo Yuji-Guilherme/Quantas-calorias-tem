@@ -31,11 +31,11 @@ function Input({
 
   return (
     <form
-      className="flex items-center w-49/50 h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text md:h-10 sm:h-9 sm:pb-2"
+      className="flex items-center w-49/50 h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text blue md:h-10 sm:h-9 sm:pb-2"
       {...props}
     >
       <Search
-        className="w-[18px] stroke-2 stroke-dark-purple sm:w-4 sm:stroke-3"
+        className="w-[18px] stroke-2 stroke-dark-purple sm:w-4 sm:stroke- dark:stroke-medium-blue"
         onClick={() => inputFocus()}
       />
       <input
@@ -51,16 +51,16 @@ function Input({
             menuRef.current?.focus();
           }
         }}
-        className="bg-transparent outline-none w-full font-medium md:text-sm sm:text-sm"
+        className="bg-transparent outline-none w-full font-medium md:text-sm sm:text-sm dark:text-sky-50"
       />
       <div className="w-auto h-fit flex items-center gap-1">
         {removeBtnIsOn && (
           <button
             type="button"
-            className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1 sm:w-6"
+            className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1 sm:w-6 dark:border-medium-blue"
             onClick={handleRemove}
           >
-            <X className="w-[16px] stroke-2 stroke-dark-purple/60 md:w-[14px]" />
+            <X className="w-[16px] stroke-2 stroke-dark-purple/60 md:w-[14px] dark:stroke-medium-blue" />
           </button>
         )}
         <button
@@ -68,7 +68,7 @@ function Input({
           className="w-6 flex justify-center"
           onClick={handleSubmit}
         >
-          <Plus className="w-[18px] stroke-3 stroke-dark-purple md:w-4 sm:w-4" />
+          <Plus className="w-[18px] stroke-3 stroke-dark-purple md:w-4 sm:w-4 dark:stroke-medium-blue" />
         </button>
         <button
           type="button"
@@ -76,7 +76,7 @@ function Input({
           onClick={handleShowMenu}
         >
           <ChevronRight
-            className="w-[18px] pt-[1px] stroke-3 stroke-dark-purple rotate-90 transition-transform data-[show=true]:-rotate-90"
+            className="w-[18px] pt-[1px] stroke-3 stroke-dark-purple rotate-90 transition-transform data-[show=true]:-rotate-90 dark:stroke-medium-blue"
             data-show={menuIsOpen}
           />
         </button>
