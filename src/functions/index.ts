@@ -4,6 +4,7 @@ import { filterFoodArrayByDesc } from './filterFoodArrayByDesc';
 import { percentageCalc } from './percentageCalc';
 import { pointToComma } from './pointToComma';
 import { verifyUnderFourOrOverNinety } from './verifyUnderFourOrOverNinety';
+import { getLocalStorage, setLocalStorage } from './localStorage';
 
 export {
   compareNumbersObj,
@@ -11,5 +12,7 @@ export {
   filterFoodArrayByDesc,
   percentageCalc,
   pointToComma,
-  verifyUnderFourOrOverNinety
+  verifyUnderFourOrOverNinety,
+  getLocalStorage,
+  setLocalStorage
 };
