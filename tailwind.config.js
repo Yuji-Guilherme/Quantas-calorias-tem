@@ -16,18 +16,10 @@ export default {
       'medium-gray-2': '#292737',
       'dark-gray': '#21222d',
       current: 'currentColor',
-      black: colors.black,
-      blue: colors.blue,
-      white: colors.white,
-      gray: colors.gray,
-      emerald: colors.emerald,
-      indigo: colors.indigo,
       yellow: colors.yellow,
       sky: colors.sky,
       zinc: colors.zinc,
-      cyan: colors.cyan,
       rose: colors.rose,
-      red: colors.red
     },
     fontFamily: {
       'number': ['Poppins', 'sans-serif']
