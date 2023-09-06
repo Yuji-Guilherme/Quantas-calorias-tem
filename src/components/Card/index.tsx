@@ -4,6 +4,7 @@ import { useCard, useCaloriesCircle } from './hook';
 
 import { X, Pen } from 'lucide-react';
 import { ComponentProps } from 'react';
+import { MacroPercentage } from './MacroPercentage';
 
 type CardProps = Food & ComponentProps<'li'>;
 
@@ -27,9 +28,10 @@ function Card({
     handleRemoveCard
   } = useCard({ carbs, fat, protein, fiber, calories, _id });
 
-  const { circleSizesAndColors, circleSizeEmpty } = useCaloriesCircle({
-    ...macroPercentages
-  });
+  const { circleSizesAndColors, circleTwoSizeEmpty, circleOneSizeEmpty } =
+    useCaloriesCircle({
+      ...macroPercentages
+    });
 
   return (
     <li
@@ -71,49 +73,24 @@ function Card({
           </p>
         </div>
       </div>
-      <div className="card_info ml-1">
-        <p className="card_info_number">{macroNumbers.carb}g</p>
-        <p className="card_info_desc">
-          carboidrato{macroNumbers.carb > 1 && 's'}
-        </p>
-        <div className="flex items-center gap-1 mt-1">
-          <span
-            className="card_percentage bg-sky-600"
-            style={{ width: macroPercentages.carb.width }}
-          />
-          <p className="text-sky-600 card_percentage_text">
-            {macroPercentages.carb.text}%
-          </p>
-        </div>
-      </div>
-      <div className="card_info sm:ml-2">
-        <p className="card_info_number">{macroNumbers.protein}g</p>
-        <p className="card_info_desc">
-          proteína{macroNumbers.protein > 1 && 's'}
-        </p>
-        <div className="flex items-center gap-1 mt-1">
-          <span
-            className="card_percentage bg-rose-800"
-            style={{ width: macroPercentages.protein.width }}
-          />
-          <p className="text-rose-800 card_percentage_text">
-            {macroPercentages.protein.text}%
-          </p>
-        </div>
-      </div>
-      <div className="card_info">
-        <p className="card_info_number">{macroNumbers.fat}g</p>
-        <p className="card_info_desc">gordura{macroNumbers.fat > 1 && 's'}</p>
-        <div className="flex items-center gap-1 mt-1">
-          <span
-            className="card_percentage bg-yellow-500"
-            style={{ width: macroPercentages.fat.width }}
-          />
-          <p className="text-yellow-600 card_percentage_text">
-            {macroPercentages.fat.text}%
-          </p>
-        </div>
-      </div>
+      <MacroPercentage
+        className="card_info ml-1"
+        type="carb"
+        macro={macroPercentages.carb}
+        number={macroNumbers.carb}
+      />
+      <MacroPercentage
+        className="card_info sm:ml-2"
+        type="protein"
+        macro={macroPercentages.protein}
+        number={macroNumbers.protein}
+      />
+      <MacroPercentage
+        className="card_info"
+        type="fat"
+        macro={macroPercentages.fat}
+        number={macroNumbers.fat}
+      />
       <div className="card_info sm:ml-2 sm:mb-4">
         <p className="card_info_number">{macroNumbers.fiber}g</p>
         <p className="card_info_desc">fibra{macroNumbers.fiber > 1 && 's'}</p>
@@ -125,7 +102,9 @@ function Card({
         <p className="card_info_desc z-1">cal</p>
         <span className="absolute z-0">
           <CaloriesCircle
-            circleProps={circleSizeEmpty || circleSizesAndColors}
+            circleProps={
+              circleTwoSizeEmpty || circleOneSizeEmpty || circleSizesAndColors
+            }
           />
         </span>
       </div>

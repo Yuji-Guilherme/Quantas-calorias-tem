@@ -1,12 +1,12 @@
-import { ObjectWithColorNumber } from '@/functions/compareNumbersObj';
+import { MacroInPercentObject } from '../hook/types';
 
 import { ComponentProps } from 'react';
 
 type CaloriesCircleProps = {
   circleProps: {
-    first: ObjectWithColorNumber;
-    second: ObjectWithColorNumber;
-    third: ObjectWithColorNumber;
+    first: MacroInPercentObject;
+    second: MacroInPercentObject;
+    third: MacroInPercentObject;
   };
 } & ComponentProps<'li'>;
 
@@ -39,14 +39,14 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
           cy="92.639908"
           r="20"
         />
-        {second.number && (
+        {second.width && (
           <circle
             style={{
               fill: 'none',
               stroke: second.color,
               strokeWidth: '2',
               strokeDasharray: '124',
-              strokeDashoffset: second.number,
+              strokeDashoffset: second.width,
               strokeLinecap: 'round',
               strokeLinejoin: 'round',
               paintOrder: 'markers stroke fill'
@@ -57,14 +57,14 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
             r="20"
           />
         )}
-        {first.number && (
+        {first.width && (
           <circle
             style={{
               fill: 'none',
               stroke: first.color,
               strokeWidth: '2',
               strokeDasharray: '124',
-              strokeDashoffset: first.number,
+              strokeDashoffset: first.width,
               strokeLinecap: 'round',
               strokeLinejoin: 'round',
               paintOrder: 'markers stroke fill'

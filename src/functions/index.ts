@@ -1,4 +1,4 @@
-import { compareNumbersObj } from './compareNumbersObj';
+import { compareWidthInObj } from './compareWidthInObj';
 import { createId } from './createId';
 import { filterFoodArrayByDesc } from './filterFoodArrayByDesc';
 import { percentageCalc } from './percentageCalc';
@@ -7,7 +7,7 @@ import { verifyUnderFourOrOverNinety } from './verifyUnderFourOrOverNinety';
 import { getLocalStorage, setLocalStorage } from './localStorage';
 
 export {
-  compareNumbersObj,
+  compareWidthInObj,
   createId,
   filterFoodArrayByDesc,
   percentageCalc,

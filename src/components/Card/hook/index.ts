@@ -1,24 +1,14 @@
 import {
-  compareNumbersObj,
+  compareWidthInObj,
   percentageCalc,
   pointToComma,
   verifyUnderFourOrOverNinety
 } from '@/functions';
 import { Food } from '@/types';
+import { MacroPercentageObject } from './types';
 import { useFoodStore } from '@/store/food';
 
 import { useState } from 'react';
-
-interface MacroInPercentObject {
-  text: string;
-  width: number;
-}
-
-type MacroPercentageObject = {
-  carb: MacroInPercentObject;
-  fat: MacroInPercentObject;
-  protein: MacroInPercentObject;
-};
 
 const useCard = ({
   carbs = 0,
@@ -46,9 +36,13 @@ const useCard = ({
     verifyUnderFourOrOverNinety(macrosPercentInNumber);
 
   const macroPercentages = {
-    carb: { text: carbPercentText, width: carbPercentWidth },
-    fat: { text: fatPercentText, width: fatPercentWidth },
-    protein: { text: proteinPercentText, width: proteinPercentWidth }
+    carb: { text: carbPercentText, width: carbPercentWidth, color: '#0284c7' },
+    fat: { text: fatPercentText, width: fatPercentWidth, color: '#eab308' },
+    protein: {
+      text: proteinPercentText,
+      width: proteinPercentWidth,
+      color: '#9f1239'
+    }
   } as MacroPercentageObject;
 
   const [carbNumber, fatNumber, proteinNumber, fiberNumber, caloriesNumber] = [
@@ -88,35 +82,31 @@ const useCard = ({
 };
 
 const useCaloriesCircle = ({ carb, fat, protein }: MacroPercentageObject) => {
-  const carbObj = { number: carb.width, color: '#0284c7' };
-  const fatObj = { number: fat.width, color: '#eab308' };
-  const proteinObj = { number: protein.width, color: '#9f1239' };
-
   const [carbValue, fatValue, proteinValue] = [
     carb.text,
     fat.text,
     protein.text
   ].map((value) => parseFloat(value));
 
-  const [firstObj, secondObj, thirdObj] = compareNumbersObj([
-    carbObj,
-    fatObj,
-    proteinObj
+  const [firstObj, secondObj, thirdObj] = compareWidthInObj([
+    carb,
+    fat,
+    protein
   ]);
 
   if (carbValue === 100 || fatValue === 100 || proteinValue === 100) {
-    const circleSizeEmpty = {
-      first: { ...firstObj, number: 0 },
-      second: { ...secondObj, number: 0 },
+    const circleTwoSizeEmpty = {
+      first: { ...firstObj, width: 0 },
+      second: { ...secondObj, width: 0 },
       third: thirdObj
     };
 
-    return { circleSizeEmpty };
+    return { circleTwoSizeEmpty };
   }
 
   const [firstPercentageIn62, secondPercentageIn62] = percentageCalc(
     100,
-    [firstObj.number, secondObj.number],
+    [firstObj.width, secondObj.width],
     62
   );
 
@@ -124,9 +114,22 @@ const useCaloriesCircle = ({ carb, fat, protein }: MacroPercentageObject) => {
   const secondSize =
     123 - (parseInt(secondPercentageIn62) + parseInt(firstPercentageIn62));
 
+  if (carbValue === 0 || fatValue === 0 || proteinValue === 0) {
+    const circleOneSizeEmpty = {
+      first: { ...firstObj, width: 0 },
+      second: {
+        ...secondObj,
+        width: secondSize + 1 + parseInt(firstPercentageIn62)
+      },
+      third: thirdObj
+    };
+
+    return { circleOneSizeEmpty };
+  }
+
   const circleSizesAndColors = {
-    first: { ...firstObj, number: firstSize },
-    second: { ...secondObj, number: secondSize },
+    first: { ...firstObj, width: firstSize },
+    second: { ...secondObj, width: secondSize },
     third: thirdObj
   };
 
