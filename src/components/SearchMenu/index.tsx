@@ -38,7 +38,7 @@ function SearchMenu({
     >
       {isLoading && <Loading withWord />}
       {isError && (
-        <p className="w-fit mt-4 mx-auto text-lg font-medium text-dark-purple md:text-sm md:mt-2 sm:text-sm sm:mt-0">
+        <p className="w-fit mt-4 mx-auto text-lg font-medium text-dark-purple dark:text-sky-50 md:text-sm md:mt-2 sm:text-sm sm:mt-0">
           Ocorreu um error, tente novamente mais tarde
         </p>
       )}

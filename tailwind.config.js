@@ -13,6 +13,7 @@ export default {
       'medium-blue': '#D1E0E0',
       'dark-purple': '#1A1921',
       'medium-gray': '#2B2A36',
+      'medium-gray-2': '#292737',
       'dark-gray': '#21222d',
       current: 'currentColor',
       black: colors.black,

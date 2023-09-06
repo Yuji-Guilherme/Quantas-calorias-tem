@@ -13,7 +13,7 @@
         text-decoration: none;
     }
     body {
-        @apply w-full h-auto bg-light-blue transition-colors dark:bg-medium-gray;
+        @apply w-full h-auto bg-light-blue transition-colors dark:bg-medium-gray-2;
     }
     button, a {
         cursor: pointer;
