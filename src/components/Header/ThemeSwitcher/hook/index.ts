@@ -22,13 +22,13 @@ const useTheme = () => {
     }
   }, [theme]);
 
-  const handleTheme = () => {
+  const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return {
     theme,
-    handleTheme
+    toggleTheme
   };
 };
 

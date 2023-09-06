@@ -11,7 +11,7 @@ type SearchMenuProps = {
   data: Food[] | undefined;
   isLoading: boolean;
   isError: boolean;
-  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
   menuIsOpen: boolean;
   menuRef: React.RefObject<HTMLInputElement>;
   searchIsLoad: boolean;
@@ -21,13 +21,13 @@ function SearchMenu({
   data,
   isLoading,
   isError,
-  setMenuIsOpen,
+  setOpenMenu,
   menuIsOpen,
   menuRef,
   searchIsLoad,
   ...props
 }: SearchMenuProps) {
-  const { handleItemClick } = useMenu({ setMenuIsOpen });
+  const { handleOptionSubmit } = useMenu({ setOpenMenu });
   const deferredData = useDeferredValue(data);
 
   return (
@@ -55,9 +55,9 @@ function SearchMenu({
               ref={index === 0 ? menuRef : null}
               key={food._id}
               food={food}
-              onClick={(e) => handleItemClick(food, e)}
+              onClick={(e) => handleOptionSubmit(food, e)}
               onKeyPress={(e) => {
-                if (e.key === 'Enter') handleItemClick(food);
+                if (e.key === 'Enter') handleOptionSubmit(food);
               }}
             />
           ))}

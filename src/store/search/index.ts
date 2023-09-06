@@ -14,7 +14,7 @@ const useSearchStore = create<UseSearchStore>((set) => ({
         }
       }));
     },
-    setSearch: (foodName) => {
+    setSearchFood: (foodName) => {
       set(() => ({
         state: { searchFood: foodName }
       }));

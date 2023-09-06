@@ -9,5 +9,5 @@ export interface StateSearchStore {
 
 export interface ActionsSearchStore {
   clearSearch: () => void;
-  setSearch: (foodName: string) => void;
+  setSearchFood: (foodName: string) => void;
 }

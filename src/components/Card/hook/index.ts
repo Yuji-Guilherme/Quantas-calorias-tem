@@ -28,7 +28,7 @@ const useCard = ({
   calories = 0,
   _id
 }: Partial<Food>) => {
-  const [editGrams, setEditGrams] = useState<boolean>(false);
+  const [isGramsEdited, setIsGramsEdited] = useState<boolean>(false);
   const [grams, setGrams] = useState<string>('100');
 
   const {
@@ -45,6 +45,12 @@ const useCard = ({
   const [carbPercentWidth, fatPercentWidth, proteinPercentWidth] =
     verifyUnderFourOrOverNinety(macrosPercentInNumber);
 
+  const macroPercentages = {
+    carb: { text: carbPercentText, width: carbPercentWidth },
+    fat: { text: fatPercentText, width: fatPercentWidth },
+    protein: { text: proteinPercentText, width: proteinPercentWidth }
+  } as MacroPercentageObject;
+
   const [carbNumber, fatNumber, proteinNumber, fiberNumber, caloriesNumber] = [
     carbs,
     fat,
@@ -52,6 +58,14 @@ const useCard = ({
     fiber,
     calories
   ].map((number) => parseFloat(((number * parseInt(grams)) / 100).toFixed(1)));
+
+  const macroNumbers = {
+    carb: carbNumber,
+    fat: fatNumber,
+    protein: proteinNumber,
+    fiber: fiberNumber,
+    calories: caloriesNumber
+  };
 
   const handleCalSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (parseInt(e.target.value) > 1000) return setGrams('1000');
@@ -62,26 +76,12 @@ const useCard = ({
     removeFood(_id!);
   };
 
-  const macroNumbers = {
-    carb: carbNumber,
-    fat: fatNumber,
-    protein: proteinNumber,
-    fiber: fiberNumber,
-    calories: caloriesNumber
-  };
-
-  const macroPercentages = {
-    carb: { text: carbPercentText, width: carbPercentWidth },
-    fat: { text: fatPercentText, width: fatPercentWidth },
-    protein: { text: proteinPercentText, width: proteinPercentWidth }
-  } as MacroPercentageObject;
-
   return {
     macroNumbers,
     macroPercentages,
     grams,
-    editGrams,
-    setEditGrams,
+    isGramsEdited,
+    setIsGramsEdited,
     handleCalSubmit,
     handleRemoveCard
   };

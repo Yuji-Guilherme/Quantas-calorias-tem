@@ -4,23 +4,21 @@ import { useRef, useState, useEffect } from 'react';
 
 type UseInputProps = {
   addFirstFood: () => void;
-  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
   transitionFn: React.TransitionStartFunction;
-  menuIsOpen: boolean;
 };
 
 const useInput = ({
   addFirstFood,
-  setMenuIsOpen,
-  transitionFn,
-  menuIsOpen
+  setOpenMenu,
+  transitionFn
 }: UseInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [removeBtnIsOn, setRemoveBtnIsOn] = useState(false);
 
   const {
     state: { searchFood },
-    actions: { setSearch }
+    actions: { setSearchFood }
   } = useSearchStore();
 
   useEffect(() => {
@@ -40,7 +38,7 @@ const useInput = ({
 
   const verifyInputEmpty = (value: string) => {
     if (!value) {
-      setSearch('');
+      setSearchFood('');
       setRemoveBtnIsOn(false);
       return;
     }
@@ -52,32 +50,34 @@ const useInput = ({
     verifyInputEmpty(value);
     if (!value.trim()) return;
     transitionFn(() => {
-      setSearch(value);
+      setSearchFood(value);
     });
   };
 
-  const handleSubmit = (
+  const handleSubmitFood = (
     e?: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e?.preventDefault();
     if (inputRef?.current?.value.trim() === '') return;
     inputBlur();
     addFirstFood();
-    setSearch('');
-    setMenuIsOpen(false);
+    setSearchFood('');
+    setOpenMenu(false);
   };
 
-  const handleRemove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    setSearch('');
-    inputFocus();
-  };
-
-  const handleShowMenu = (
+  const handleClearInput = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setMenuIsOpen(!menuIsOpen);
+    setSearchFood('');
+    inputFocus();
+  };
+
+  const toggleShowMenu = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setOpenMenu((prev) => !prev);
   };
 
   return {
@@ -85,9 +85,9 @@ const useInput = ({
     removeBtnIsOn,
     inputFocus,
     handleInputChange,
-    handleSubmit,
-    handleRemove,
-    handleShowMenu
+    handleSubmitFood,
+    handleClearInput,
+    toggleShowMenu
   };
 };
 

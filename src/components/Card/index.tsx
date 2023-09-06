@@ -21,8 +21,8 @@ function Card({
     macroNumbers,
     macroPercentages,
     grams,
-    editGrams,
-    setEditGrams,
+    isGramsEdited,
+    setIsGramsEdited,
     handleCalSubmit,
     handleRemoveCard
   } = useCard({ carbs, fat, protein, fiber, calories, _id });
@@ -46,9 +46,9 @@ function Card({
         <X className="stroke-dark-purple dark:stroke-medium-blue md:w-5 sm:w-5" />
       </button>
       <div className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px]s">
-        <button onClick={() => setEditGrams(!editGrams)}>
+        <button onClick={() => setIsGramsEdited((prev) => !prev)}>
           <Pen
-            data-active={editGrams}
+            data-active={isGramsEdited}
             className="w-[18px] fill-dark-purple stroke-dark-purple dark:stroke-medium-blue dark:fill-medium-blue transition-colors data-[active=true]:fill-transparent dark:data-[active=true]:fill-transparent md:w-4 sm:w-4"
           />
         </button>
@@ -59,11 +59,11 @@ function Card({
             max={1000}
             className="w-fit max-w-[100px] py-1 pl-2 rounded text-3xl font-semibold text-dark-purple font-number bg-medium-gray/10 dark:bg-medium-blue/5 outline-none border border-solid border-medium-gray/50 dark:border-light-blue/50 disabled:border-none disabled:bg-transparent dark:disabled:bg-transparent dark:text-medium-blue md:text-2xl md:w-20 sm:text-2xl sm:max-w-[80px]"
             value={grams}
-            disabled={!editGrams}
+            disabled={!isGramsEdited}
             onChange={handleCalSubmit}
-            onBlur={() => setEditGrams(false)}
+            onBlur={() => setIsGramsEdited(false)}
             onKeyPress={(e) => {
-              if (e.key === 'Enter') setEditGrams(false);
+              if (e.key === 'Enter') setIsGramsEdited(false);
             }}
           />
           <p className="card_info_desc pl-2">

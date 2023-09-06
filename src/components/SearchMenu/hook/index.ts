@@ -4,29 +4,29 @@ import { useSearchStore } from '@/store/search';
 import { Food } from '@/types';
 
 type UseMenuProps = {
-  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const useMenu = ({ setMenuIsOpen }: UseMenuProps) => {
+const useMenu = ({ setOpenMenu }: UseMenuProps) => {
   const {
     actions: { addFood }
   } = useFoodStore();
 
   const {
-    actions: { setSearch }
+    actions: { setSearchFood }
   } = useSearchStore();
 
-  const handleItemClick = (
+  const handleOptionSubmit = (
     food: Food,
     e?: React.MouseEvent<HTMLInputElement, MouseEvent>
   ) => {
     if (e?.detail === 0) return;
-    setSearch('');
+    setSearchFood('');
     addFood(food);
-    setMenuIsOpen(false);
+    setOpenMenu(false);
   };
 
-  return { handleItemClick };
+  return { handleOptionSubmit };
 };
 
 export { useMenu };

@@ -7,7 +7,7 @@ import { useRef, useState, useTransition } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const useSearchT = () => {
-  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const [menuIsOpen, setOpenMenu] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
   const menuRef = useRef<HTMLInputElement>(null);
 
@@ -38,7 +38,7 @@ const useSearchT = () => {
     isError,
     menuRef,
     menuIsOpen,
-    setMenuIsOpen,
+    setOpenMenu,
     addFirstFood,
     isPending,
     startTransition

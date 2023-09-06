@@ -5,7 +5,7 @@ import { ComponentProps, memo } from 'react';
 
 type InputProps = {
   addFirstFood: () => void;
-  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
   menuIsOpen: boolean;
   menuRef: React.RefObject<HTMLInputElement>;
   transitionFn: React.TransitionStartFunction;
@@ -13,7 +13,7 @@ type InputProps = {
 
 function Input({
   addFirstFood,
-  setMenuIsOpen,
+  setOpenMenu,
   transitionFn,
   menuIsOpen,
   menuRef,
@@ -24,10 +24,10 @@ function Input({
     removeBtnIsOn,
     inputFocus,
     handleInputChange,
-    handleSubmit,
-    handleRemove,
-    handleShowMenu
-  } = useInput({ addFirstFood, setMenuIsOpen, menuIsOpen, transitionFn });
+    handleSubmitFood,
+    handleClearInput,
+    toggleShowMenu
+  } = useInput({ addFirstFood, setOpenMenu, transitionFn });
 
   return (
     <form
@@ -44,7 +44,7 @@ function Input({
         placeholder="Pesquise um alimento..."
         onChange={handleInputChange}
         onKeyPress={(e) => {
-          if (e.key === 'Enter') handleSubmit();
+          if (e.key === 'Enter') handleSubmitFood();
         }}
         onKeyDown={(e) => {
           if (e.key === 'ArrowDown') {
@@ -58,7 +58,7 @@ function Input({
           <button
             type="button"
             className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1 sm:w-6 dark:border-medium-blue"
-            onClick={handleRemove}
+            onClick={handleClearInput}
           >
             <X className="w-[16px] stroke-2 stroke-dark-purple/60 md:w-[14px] dark:stroke-medium-blue" />
           </button>
@@ -66,14 +66,14 @@ function Input({
         <button
           type="submit"
           className="w-6 flex justify-center"
-          onClick={handleSubmit}
+          onClick={handleSubmitFood}
         >
           <Plus className="w-[18px] stroke-3 stroke-dark-purple md:w-4 sm:w-4 dark:stroke-medium-blue" />
         </button>
         <button
           type="button"
           className="w-6 flex justify-center sm:w-4"
-          onClick={handleShowMenu}
+          onClick={toggleShowMenu}
         >
           <ChevronRight
             className="w-[18px] pt-[1px] stroke-3 stroke-dark-purple rotate-90 transition-transform data-[show=true]:-rotate-90 dark:stroke-medium-blue"
