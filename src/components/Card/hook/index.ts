@@ -1,10 +1,10 @@
-import { Food } from '@/types';
 import {
   compareNumbersObj,
   percentageCalc,
   pointToComma,
   verifyUnderFourOrOverNinety
 } from '@/functions';
+import { Food } from '@/types';
 import { useFoodStore } from '@/store/food';
 
 import { useState } from 'react';

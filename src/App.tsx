@@ -1,5 +1,5 @@
-import { queryClient } from '@/services/queryClient';
 import { Home } from './pages/Home';
+import { queryClient } from '@/services/queryClient';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 

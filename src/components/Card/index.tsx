@@ -1,6 +1,6 @@
+import { CaloriesCircle } from './CaloriesCircle';
 import { Food } from '@/types';
 import { useCard, useCaloriesCircle } from './hook';
-import { CaloriesCircle } from './CaloriesCircle';
 
 import { X, Pen } from 'lucide-react';
 import { ComponentProps } from 'react';

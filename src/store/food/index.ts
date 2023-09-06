@@ -1,5 +1,5 @@
-import { UseFoodStore } from './types';
 import { createId } from '@/functions';
+import { UseFoodStore } from './types';
 
 import { create } from 'zustand';
 

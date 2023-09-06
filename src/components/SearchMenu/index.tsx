@@ -1,7 +1,7 @@
 import { Loading } from './Loading';
 import { MenuOption } from './MenuOption';
-import { useMenu } from './hook';
 import { Food } from '@/types';
+import { useMenu } from './hook';
 
 import { ComponentProps, useDeferredValue } from 'react';
 
