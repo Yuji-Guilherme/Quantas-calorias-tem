@@ -24,7 +24,7 @@
       "sourceType": "module"
     },
     "plugins": ["react", "@typescript-eslint", "react-hooks", "@tanstack/query", "prettier"],
-    "ignorePatterns": ["tailwind.config.js", "postcss.config.js", "vite.config.js"],
+    "ignorePatterns": ["tailwind.config.js", "postcss.config.js", "vite.config.ts"],
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
