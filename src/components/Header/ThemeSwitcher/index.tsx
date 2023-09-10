@@ -7,8 +7,12 @@ function ThemeSwitcher() {
 
   return (
     <button className="group" onClick={() => toggleTheme()}>
-      {theme === 'light' && <SunMedium className="header_logo" />}
-      {theme === 'dark' && <Moon className="header_logo w-6 h-6" />}
+      {theme === 'light' && (
+        <SunMedium role="sun-icon" className="header_logo" />
+      )}
+      {theme === 'dark' && (
+        <Moon role="moon-icon" className="header_logo w-6 h-6" />
+      )}
     </button>
   );
 }

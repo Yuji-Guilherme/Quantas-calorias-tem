@@ -13,7 +13,7 @@ function Header() {
           className="group"
           href="https://github.com/Yuji-Guilherme/quantas-calorias"
         >
-          <Github className="header_logo" />
+          <Github role="github-logo" className="header_logo" />
         </a>
       </div>
     </header>
