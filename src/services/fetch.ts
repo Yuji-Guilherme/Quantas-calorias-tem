@@ -1,6 +1,6 @@
 import { Food } from '@/types';
 
-const url = import.meta.env.VITE_REACT_API_URL;
+const url = process.env.VITE_REACT_API_URL;
 
 export const fetchFoods = async (): Promise<Food[]> => {
   const response = await fetch(`${url}`);
