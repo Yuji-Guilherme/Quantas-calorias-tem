@@ -64,7 +64,8 @@
       "<rootDir>/src/**/*.{js,ts,jsx,tsx}"
     ],
     "moduleNameMapper": {
-      "^@/(.*)": "<rootDir>/src/$1"
+      "^@/(.*)": "<rootDir>/src/$1",
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     }
   }
 }

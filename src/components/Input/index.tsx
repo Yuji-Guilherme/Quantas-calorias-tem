@@ -31,6 +31,7 @@ function Input({
 
   return (
     <form
+      role="form"
       className="flex items-center w-49/50 h-12 mx-auto border-solid border-b-2 border-dark-purple px-3 gap-3 hover:cursor-text blue md:h-10 sm:h-9 sm:pb-2"
       {...props}
     >
