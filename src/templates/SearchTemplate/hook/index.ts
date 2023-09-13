@@ -10,8 +10,16 @@ const useSearchT = () => {
   const [isPending, startTransition] = useTransition();
   const menuRef = useRef<HTMLInputElement>(null);
 
-  const { data, isLoading, isError } = useFetch();
+  return {
+    menuRef,
+    menuIsOpen,
+    setOpenMenu,
+    isPending,
+    startTransition
+  };
+};
 
+const useData = () => {
   const {
     actions: { addFood }
   } = useFoodStore();
@@ -19,6 +27,8 @@ const useSearchT = () => {
   const {
     state: { searchFood }
   } = useSearchStore();
+
+  const { data, isLoading, isError } = useFetch();
 
   const filterData =
     searchFood && data ? filterFoodArrayByDesc(data, searchFood) : data;
@@ -29,17 +39,7 @@ const useSearchT = () => {
     }
   };
 
-  return {
-    filterData,
-    isLoading,
-    isError,
-    menuRef,
-    menuIsOpen,
-    setOpenMenu,
-    addFirstFood,
-    isPending,
-    startTransition
-  };
+  return { isLoading, isError, filterData, addFirstFood };
 };
 
-export { useSearchT };
+export { useSearchT, useData };

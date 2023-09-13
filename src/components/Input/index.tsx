@@ -36,6 +36,7 @@ function Input({
       {...props}
     >
       <Search
+        role="search-icon"
         className="w-[18px] stroke-2 stroke-dark-purple sm:w-4 sm:stroke- dark:stroke-medium-blue"
         onClick={() => inputFocus()}
       />
@@ -54,29 +55,39 @@ function Input({
         }}
         className="bg-transparent outline-none w-full font-medium md:text-sm sm:text-sm dark:text-sky-50"
       />
-      <div className="w-auto h-fit flex items-center gap-1">
+      <div role="toolbar" className="w-auto h-fit flex items-center gap-1">
         {removeBtnIsOn && (
           <button
+            role="remove-btn"
             type="button"
             className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1 sm:w-6 dark:border-medium-blue"
             onClick={handleClearInput}
           >
-            <X className="w-[16px] stroke-2 stroke-dark-purple/60 md:w-[14px] dark:stroke-medium-blue" />
+            <X
+              role="x-icon"
+              className="w-[16px] stroke-2 stroke-dark-purple/60 md:w-[14px] dark:stroke-medium-blue"
+            />
           </button>
         )}
         <button
+          role="add-btn"
           type="submit"
           className="w-6 flex justify-center"
           onClick={handleSubmitFood}
         >
-          <Plus className="w-[18px] stroke-3 stroke-dark-purple md:w-4 sm:w-4 dark:stroke-medium-blue" />
+          <Plus
+            role="plus-icon"
+            className="w-[18px] stroke-3 stroke-dark-purple md:w-4 sm:w-4 dark:stroke-medium-blue"
+          />
         </button>
         <button
+          role="show-btn"
           type="button"
           className="w-6 flex justify-center sm:w-4"
           onClick={toggleShowMenu}
         >
           <ChevronRight
+            role="arrow-icon"
             className="w-[18px] pt-[1px] stroke-3 stroke-dark-purple rotate-90 transition-transform data-[show=true]:-rotate-90 dark:stroke-medium-blue"
             data-show={menuIsOpen}
           />

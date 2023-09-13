@@ -1,19 +1,12 @@
 import Input from '@/components/Input';
 import { SearchMenu } from '@/components/SearchMenu';
-import { useSearchT } from './hook';
+import { useSearchT, useData } from './hook';
 
 function SearchTemplate() {
-  const {
-    filterData,
-    isLoading,
-    isError,
-    menuRef,
-    menuIsOpen,
-    setOpenMenu,
-    addFirstFood,
-    isPending,
-    startTransition
-  } = useSearchT();
+  const { menuRef, menuIsOpen, setOpenMenu, isPending, startTransition } =
+    useSearchT();
+
+  const { filterData, isLoading, isError, addFirstFood } = useData();
 
   return (
     <section

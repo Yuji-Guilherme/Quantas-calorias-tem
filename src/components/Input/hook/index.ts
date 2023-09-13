@@ -23,7 +23,7 @@ const useInput = ({
 
   useEffect(() => {
     if (searchFood === '') {
-      inputRef.current!.value = '';
+      inputRef.current?.value ? (inputRef.current.value = '') : null;
       setRemoveBtnIsOn(false);
     }
   }, [searchFood]);

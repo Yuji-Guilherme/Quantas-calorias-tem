@@ -7,7 +7,6 @@ const useFetch = () => {
     queryKey: ['foods'],
     queryFn: fetchFoods
   });
-
   return { data, isLoading, isError };
 };
 
