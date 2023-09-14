@@ -1,4 +1,4 @@
-import { MacroInPercentObject } from '@/components/Card/hook/types';
+import { MacroInPercentObject } from '@/components/Card/types';
 
 const compareWidthInObj = (macrosPercentArray: MacroInPercentObject[]) =>
   macrosPercentArray.sort(function (a, b) {

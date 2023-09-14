@@ -1,4 +1,4 @@
-import { MacroInPercentObject } from '../hook/types';
+import { MacroInPercentObject } from '@/components/Card/types';
 
 import { ComponentProps } from 'react';
 

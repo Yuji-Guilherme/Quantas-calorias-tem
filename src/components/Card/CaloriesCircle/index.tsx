@@ -1,4 +1,4 @@
-import { MacroInPercentObject } from '../hook/types';
+import { MacroInPercentObject } from '@/components/Card/types';
 
 import { ComponentProps } from 'react';
 
@@ -21,6 +21,7 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
         transform: 'scaleX(-1) rotate(180deg)'
       }}
       className="w-40 h-28 md:w-32 md:h-24 md:mt-1 sm:w-32 sm:h-24 sm:mt-[7px]"
+      role="cal-circle-svg"
     >
       <g id="layer1" transform="translate(-83.126863,-72.639906)">
         <circle
@@ -34,6 +35,7 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
             strokeLinejoin: 'round',
             paintOrder: 'markers stroke fill'
           }}
+          role="cal-circle-3"
           id="path1"
           cx="103.12686"
           cy="92.639908"
@@ -51,6 +53,7 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
               strokeLinejoin: 'round',
               paintOrder: 'markers stroke fill'
             }}
+            role="cal-circle-2"
             id="path2"
             cx="103.12686"
             cy="92.639908"
@@ -69,6 +72,7 @@ function CaloriesCircle({ circleProps }: CaloriesCircleProps) {
               strokeLinejoin: 'round',
               paintOrder: 'markers stroke fill'
             }}
+            role="cal-circle-1"
             id="path3"
             cx="103.12686"
             cy="92.639908"

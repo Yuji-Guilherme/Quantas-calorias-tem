@@ -5,7 +5,7 @@ import {
   verifyUnderFourOrOverNinety
 } from '@/functions';
 import { Food } from '@/types';
-import { MacroPercentageObject } from './types';
+import { MacroPercentageObject } from '@/components/Card/types';
 import { useFoodStore } from '@/store/food';
 
 import { useState } from 'react';
