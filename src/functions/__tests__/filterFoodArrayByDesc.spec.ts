@@ -1,8 +1,8 @@
-import { filterFoodArrayByDesc } from '.';
+import { filterFoodArrayByDesc } from '@/functions/filterFoodArrayByDesc';
 
 const foodMock1 = {
   _id: '1',
-  number: 1,
+  number: 10,
   description: 'test1',
   calories: 1,
   carbs: 1,
@@ -13,7 +13,7 @@ const foodMock1 = {
 
 const foodMock2 = {
   _id: '2',
-  number: 2,
+  number: 20,
   description: 'test2',
   calories: 2,
   carbs: 2,

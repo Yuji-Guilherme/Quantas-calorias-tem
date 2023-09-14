@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Logo } from '.';
+import { Logo } from '@/components/Header/Logo';
 
 describe('<Title>', () => {
   it('should render component visible', () => {

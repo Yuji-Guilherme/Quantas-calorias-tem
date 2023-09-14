@@ -18,7 +18,7 @@ const useInput = ({
 
   const {
     state: { searchFood },
-    actions: { setSearchFood }
+    actions: { setSearchFood, clearSearch }
   } = useSearchStore();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const useInput = ({
 
   const verifyInputEmpty = (value: string) => {
     if (!value) {
-      setSearchFood('');
+      clearSearch();
       setRemoveBtnIsOn(false);
       return;
     }
@@ -61,7 +61,7 @@ const useInput = ({
     if (inputRef?.current?.value.trim() === '') return;
     inputBlur();
     addFirstFood();
-    setSearchFood('');
+    clearSearch();
     setOpenMenu(false);
   };
 
@@ -69,7 +69,7 @@ const useInput = ({
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setSearchFood('');
+    clearSearch();
     inputFocus();
   };
 

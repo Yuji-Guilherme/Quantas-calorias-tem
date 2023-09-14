@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { SearchTemplate } from '.';
+import { SearchTemplate } from '@/templates/SearchTemplate';
 
 jest.mock('@/hook/useFetch', () => ({
   useFetch: jest.fn().mockImplementation(() => ({

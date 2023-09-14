@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { useTheme } from '.';
+import { useTheme } from '@/components/Header/ThemeSwitcher/hook';
 
 describe('useTheme', () => {
   beforeEach(() => {

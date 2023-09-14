@@ -1,12 +1,12 @@
 import { Food } from '@/types';
-import { fetchFoods } from './fetch';
+import { fetchFoods } from '@/services/fetch';
 
-jest.mock('./fetch');
+jest.mock('@/services/fetch');
 
 const foodMock: Food[] = [
   {
     _id: '1',
-    number: 1,
+    number: 10,
     description: 'test',
     calories: 1,
     carbs: 1,

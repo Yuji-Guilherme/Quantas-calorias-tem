@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { ThemeSwitcher } from '.';
+import { ThemeSwitcher } from '@/components/Header/ThemeSwitcher';
 
 describe('<ThemeSwitcher>', () => {
   it('should render button visible', () => {

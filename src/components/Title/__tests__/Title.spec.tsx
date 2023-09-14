@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Title } from '.';
+import { Title } from '@/components/Title';
 
 describe('<Title>', () => {
   it('should render component visible with exact name', () => {

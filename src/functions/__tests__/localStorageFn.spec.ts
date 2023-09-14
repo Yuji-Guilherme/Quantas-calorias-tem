@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from '.';
+import { setLocalStorage, getLocalStorage } from '@/functions/localStorage';
 
 describe('local storage', () => {
   beforeEach(() => {

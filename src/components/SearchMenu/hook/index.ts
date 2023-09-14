@@ -13,7 +13,7 @@ const useMenu = ({ setOpenMenu }: UseMenuProps) => {
   } = useFoodStore();
 
   const {
-    actions: { setSearchFood }
+    actions: { clearSearch }
   } = useSearchStore();
 
   const handleOptionSubmit = (
@@ -21,7 +21,7 @@ const useMenu = ({ setOpenMenu }: UseMenuProps) => {
     e?: React.MouseEvent<HTMLInputElement, MouseEvent>
   ) => {
     if (e?.detail === 0) return;
-    setSearchFood('');
+    clearSearch();
     addFood(food);
     setOpenMenu(false);
   };

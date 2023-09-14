@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { SearchTemplate } from '.';
+import { SearchTemplate } from '@/templates/SearchTemplate';
 
 const foodMock1 = {
   _id: '1',
@@ -32,7 +32,7 @@ jest.mock('@/hook/useFetch', () => ({
   }))
 }));
 
-describe('<SearchTemplate>', () => {
+describe('SearchTemplate, Input, Search Menu integration tests', () => {
   it('should show button click in input toggle menu', () => {
     render(<SearchTemplate />);
 

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Header } from '.';
+import { Header } from '@/components/Header';
 
 describe('<Header>', () => {
   it('should render component visible', () => {

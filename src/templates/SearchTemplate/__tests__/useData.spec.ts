@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { useData } from '.';
+import { useData } from '@/templates/SearchTemplate/hook';
 import { useSearchStore } from '@/store/search';
 import { useFoodStore } from '@/store/food';
 
 const foodMock1 = {
   _id: '1',
-  number: 1,
+  number: 10,
   description: 'test1',
   calories: 1,
   carbs: 1,
@@ -18,7 +18,7 @@ const foodMock1 = {
 
 const foodMock2 = {
   _id: '2',
-  number: 2,
+  number: 20,
   description: 'test2',
   calories: 2,
   carbs: 2,

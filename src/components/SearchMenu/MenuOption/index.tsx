@@ -27,6 +27,7 @@ const MenuOption = forwardRef(function MenuOption(
         {...props}
       ></input>
       <label
+        role="label"
         key={food.number}
         htmlFor={food.description}
         className="cursor-pointer md:text-sm sm:text-sm dark:text-sky-100"

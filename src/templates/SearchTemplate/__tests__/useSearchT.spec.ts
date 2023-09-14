@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { useSearchT } from '.';
+import { useSearchT } from '@/templates/SearchTemplate/hook';
 
 describe('useSearchT', () => {
   it('should menu open hook working correct', () => {

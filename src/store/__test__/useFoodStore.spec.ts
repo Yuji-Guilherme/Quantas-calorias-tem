@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react';
 
-import { useFoodStore } from '.';
+import { useFoodStore } from '@/store/food';
 import { act } from 'react-dom/test-utils';
 
 const foodMock1 = {
   _id: '1',
-  number: 1,
+  number: 10,
   description: 'test1',
   calories: 1,
   carbs: 1,

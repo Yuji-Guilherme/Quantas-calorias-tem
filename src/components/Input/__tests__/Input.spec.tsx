@@ -1,6 +1,6 @@
 import { render, screen, renderHook, fireEvent } from '@testing-library/react';
 
-import Input from '.';
+import Input from '@/components/Input';
 import { useSearchT } from '@/templates/SearchTemplate/hook';
 import { useSearchStore } from '@/store/search';
 
