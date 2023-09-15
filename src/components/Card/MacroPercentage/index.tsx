@@ -21,14 +21,15 @@ function MacroPercentage({
   };
 
   return (
-    <div {...props}>
+    <div role="macro-percent-container" {...props}>
       <p className="card_info_number">{`${number}g`}</p>
       <p className="card_info_desc">
         {component[type]}
         {number > 1 && 's'}
       </p>
-      <div className="flex items-center gap-1 mt-1">
+      <div role="percent-container" className="flex items-center gap-1 mt-1">
         <span
+          role="percentage"
           className="card_percentage"
           style={{ width: macro.width, backgroundColor: macro.color }}
         />

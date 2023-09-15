@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { CaloriesCircle } from '@/components/Card/CaloriesCircle';
 
-const caloriesCircleProps = {
+const mockCaloriesCircleProps = {
   first: { text: 'test1', width: 1, color: 'blue' },
   second: { text: 'test2', width: 2, color: 'red' },
   third: { text: 'test3', width: 3, color: 'black' }
@@ -10,7 +10,7 @@ const caloriesCircleProps = {
 
 describe('<CaloriesCircle>', () => {
   it('should component elements is visible', () => {
-    render(<CaloriesCircle circleProps={caloriesCircleProps} />);
+    render(<CaloriesCircle circleProps={mockCaloriesCircleProps} />);
 
     const svgElement = screen.getByRole('cal-circle-svg');
     const firstCircleElement = screen.getByRole('cal-circle-1');
@@ -27,7 +27,7 @@ describe('<CaloriesCircle>', () => {
   });
 
   it('should component elements have correct classes and styles', () => {
-    render(<CaloriesCircle circleProps={caloriesCircleProps} />);
+    render(<CaloriesCircle circleProps={mockCaloriesCircleProps} />);
 
     const svgElement = screen.getByRole('cal-circle-svg');
     const firstCircleElement = screen.getByRole('cal-circle-1');
@@ -40,25 +40,25 @@ describe('<CaloriesCircle>', () => {
     expect(svgElement).toHaveStyle({ transform: 'scaleX(-1) rotate(180deg)' });
     expect(firstCircleElement).toHaveStyle({
       //   fill: 'none',
-      stroke: caloriesCircleProps.first.color,
+      stroke: mockCaloriesCircleProps.first.color,
       strokeWidth: '2',
       strokeDasharray: '124',
-      strokeDashoffset: caloriesCircleProps.first.width,
+      strokeDashoffset: mockCaloriesCircleProps.first.width,
       strokeLinecap: 'round',
       strokeLinejoin: 'round'
     });
     expect(secondCircleElement).toHaveStyle({
       fill: 'none',
-      stroke: caloriesCircleProps.second.color,
+      stroke: mockCaloriesCircleProps.second.color,
       strokeWidth: '2',
       strokeDasharray: '124',
-      strokeDashoffset: caloriesCircleProps.second.width,
+      strokeDashoffset: mockCaloriesCircleProps.second.width,
       strokeLinecap: 'round',
       strokeLinejoin: 'round'
     });
     expect(thirdCircleElement).toHaveStyle({
       fill: 'none',
-      stroke: caloriesCircleProps.third.color,
+      stroke: mockCaloriesCircleProps.third.color,
       strokeWidth: '2',
       strokeDasharray: '124',
       strokeDashoffset: '62',
@@ -71,7 +71,7 @@ describe('<CaloriesCircle>', () => {
     render(
       <CaloriesCircle
         circleProps={{
-          ...caloriesCircleProps,
+          ...mockCaloriesCircleProps,
           first: { text: 'test1', width: 0, color: 'blue' }
         }}
       />
@@ -84,7 +84,7 @@ describe('<CaloriesCircle>', () => {
     render(
       <CaloriesCircle
         circleProps={{
-          ...caloriesCircleProps,
+          ...mockCaloriesCircleProps,
           second: { text: 'test2', width: 0, color: 'red' }
         }}
       />

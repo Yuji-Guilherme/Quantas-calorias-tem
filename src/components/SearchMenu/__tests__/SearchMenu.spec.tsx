@@ -17,7 +17,7 @@ const foodMock1 = {
   fiber: 1
 };
 
-const defaultProps = {
+const mockDefaultProps = {
   data: [],
   isLoading: false,
   isError: false,
@@ -33,7 +33,7 @@ jest.mock('@/functions/createId', () => ({
 
 describe('<SearchMenu>', () => {
   it('should component menu is visible, have classes and attribute', () => {
-    render(<SearchMenu {...defaultProps} />);
+    render(<SearchMenu {...mockDefaultProps} />);
 
     const menuElement = screen.getByRole('menu');
 
@@ -45,7 +45,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should loading element is visible', () => {
-    render(<SearchMenu {...defaultProps} isLoading />);
+    render(<SearchMenu {...mockDefaultProps} isLoading />);
 
     const menuElement = screen.getByRole('menu');
     const loadContainerElement = screen.getByRole('contentinfo');
@@ -62,7 +62,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should error text element is visible, have class and content', () => {
-    render(<SearchMenu {...defaultProps} isError />);
+    render(<SearchMenu {...mockDefaultProps} isError />);
 
     const menuElement = screen.getByRole('menu');
     const errorTextElement = screen.getByRole('menu-text-error');
@@ -81,7 +81,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should loading without word is visible, if searchIsLoad is true', () => {
-    render(<SearchMenu {...defaultProps} searchIsLoad />);
+    render(<SearchMenu {...mockDefaultProps} searchIsLoad />);
 
     const menuElement = screen.getByRole('menu');
     const loadContainerElement = screen.getByRole('contentinfo');
@@ -96,7 +96,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should list is visible and have class', () => {
-    render(<SearchMenu {...defaultProps} />);
+    render(<SearchMenu {...mockDefaultProps} />);
 
     const menuElement = screen.getByRole('menu');
     const listElement = screen.getByRole('list');
@@ -112,7 +112,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should text with list empty is visible, have class and content', () => {
-    render(<SearchMenu {...defaultProps} />);
+    render(<SearchMenu {...mockDefaultProps} />);
 
     const listElement = screen.getByRole('list');
     const emptyTextElement = screen.getByRole('menu-empty-text');
@@ -126,7 +126,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should menu option is visible with data exist', () => {
-    render(<SearchMenu {...defaultProps} data={[foodMock1]} />);
+    render(<SearchMenu {...mockDefaultProps} data={[foodMock1]} />);
 
     const listElement = screen.getByRole('list');
     const listItemElement = screen.getByRole('listitem');
@@ -140,7 +140,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should menu option click add food and clear search', () => {
-    render(<SearchMenu {...defaultProps} data={[foodMock1]} />);
+    render(<SearchMenu {...mockDefaultProps} data={[foodMock1]} />);
 
     const foodStoreResult = renderHook(() => useFoodStore()).result;
     const searchStoreResult = renderHook(() => useSearchStore()).result;
