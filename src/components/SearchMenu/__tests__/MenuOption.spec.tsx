@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { MenuOption } from '@/components/SearchMenu/MenuOption';
 
-const foodMock1 = {
+const foodMock = {
   _id: '1',
   number: 10,
   description: 'test1',
@@ -15,7 +15,7 @@ const foodMock1 = {
 
 describe('<MenuOption>', () => {
   it('should component elements is visible', () => {
-    render(<MenuOption food={foodMock1} />);
+    render(<MenuOption food={foodMock} />);
 
     const listItemElement = screen.getByRole('listitem');
     const inputRadioElement = screen.getByRole('radio');
@@ -29,7 +29,7 @@ describe('<MenuOption>', () => {
   });
 
   it('should component elements have correct classes', () => {
-    render(<MenuOption food={foodMock1} />);
+    render(<MenuOption food={foodMock} />);
 
     const listItemElement = screen.getByRole('listitem');
     const inputRadioElement = screen.getByRole('radio');
@@ -49,21 +49,21 @@ describe('<MenuOption>', () => {
   });
 
   it('should radio input have correct attributes', () => {
-    render(<MenuOption food={foodMock1} />);
+    render(<MenuOption food={foodMock} />);
 
     const inputRadioElement = screen.getByRole('radio');
 
     expect(inputRadioElement).toHaveAttribute('name', 'foods');
-    expect(inputRadioElement).toHaveAttribute('value', foodMock1.description);
-    expect(inputRadioElement).toHaveAttribute('id', foodMock1.description);
+    expect(inputRadioElement).toHaveAttribute('value', foodMock.description);
+    expect(inputRadioElement).toHaveAttribute('id', foodMock.description);
   });
 
   it('should label have correct attributes', () => {
-    render(<MenuOption food={foodMock1} />);
+    render(<MenuOption food={foodMock} />);
 
     const labelElement = screen.getByRole('label');
 
-    expect(labelElement).toHaveAttribute('for', foodMock1.description);
-    expect(labelElement).toHaveTextContent(foodMock1.description);
+    expect(labelElement).toHaveAttribute('for', foodMock.description);
+    expect(labelElement).toHaveTextContent(foodMock.description);
   });
 });

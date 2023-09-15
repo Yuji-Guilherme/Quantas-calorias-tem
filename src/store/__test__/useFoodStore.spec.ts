@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react';
 import { useFoodStore } from '@/store/food';
 import { act } from 'react-dom/test-utils';
 
-const foodMock1 = {
+const foodMock = {
   _id: '1',
   number: 10,
   description: 'test1',
@@ -31,23 +31,23 @@ describe('use food store', () => {
     const { result } = renderHook(() => useFoodStore());
 
     act(() => {
-      result.current.actions.addFood(foodMock1);
+      result.current.actions.addFood(foodMock);
     });
 
     const foodArray = result.current.state.foods;
 
-    expect(foodArray).toContainEqual({ ...foodMock1, _id: '' });
+    expect(foodArray).toContainEqual({ ...foodMock, _id: '' });
   });
 
   it('should remove food working correctly', () => {
     const { result } = renderHook(() => useFoodStore());
 
     act(() => {
-      result.current.actions.addFood(foodMock1);
+      result.current.actions.addFood(foodMock);
     });
 
     expect(result.current.state.foods).toContainEqual({
-      ...foodMock1,
+      ...foodMock,
       _id: ''
     });
 

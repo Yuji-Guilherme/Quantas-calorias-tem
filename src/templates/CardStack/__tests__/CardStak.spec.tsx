@@ -4,7 +4,7 @@ import { CardStack } from '@/templates/CardStack';
 import { useFoodStore } from '@/store/food';
 import { act } from 'react-dom/test-utils';
 
-const foodMock1 = {
+const foodMock = {
   _id: '1',
   number: 10,
   description: 'test1',
@@ -45,7 +45,7 @@ describe('<CardStack>', () => {
     const listElement = screen.getByRole('list');
 
     act(() => {
-      result.current.actions.addFood(foodMock1);
+      result.current.actions.addFood(foodMock);
     });
 
     const listItemElement = screen.getByRole('listitem');

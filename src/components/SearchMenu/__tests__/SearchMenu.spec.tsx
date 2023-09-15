@@ -6,7 +6,7 @@ import { useSearchStore } from '@/store/search';
 
 const mockRef: { current: HTMLInputElement | null } = { current: null };
 
-const foodMock1 = {
+const foodMock = {
   _id: '1',
   number: 10,
   description: 'test1',
@@ -126,7 +126,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should menu option is visible with data exist', () => {
-    render(<SearchMenu {...mockDefaultProps} data={[foodMock1]} />);
+    render(<SearchMenu {...mockDefaultProps} data={[foodMock]} />);
 
     const listElement = screen.getByRole('list');
     const listItemElement = screen.getByRole('listitem');
@@ -140,7 +140,7 @@ describe('<SearchMenu>', () => {
   });
 
   it('should menu option click add food and clear search', () => {
-    render(<SearchMenu {...mockDefaultProps} data={[foodMock1]} />);
+    render(<SearchMenu {...mockDefaultProps} data={[foodMock]} />);
 
     const foodStoreResult = renderHook(() => useFoodStore()).result;
     const searchStoreResult = renderHook(() => useSearchStore()).result;
@@ -151,7 +151,7 @@ describe('<SearchMenu>', () => {
 
     const foodArray = foodStoreResult.current.state.foods;
 
-    expect(foodArray).toContainEqual({ ...foodMock1, _id: '' });
+    expect(foodArray).toContainEqual({ ...foodMock, _id: '' });
     expect(searchStoreResult.current.state.searchFood).toStrictEqual('');
   });
 });

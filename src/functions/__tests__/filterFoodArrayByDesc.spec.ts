@@ -1,6 +1,6 @@
 import { filterFoodArrayByDesc } from '@/functions/filterFoodArrayByDesc';
 
-const foodMock1 = {
+const food1 = {
   _id: '1',
   number: 10,
   description: 'test1',
@@ -11,7 +11,7 @@ const foodMock1 = {
   fiber: 1
 };
 
-const foodMock2 = {
+const food2 = {
   _id: '2',
   number: 20,
   description: 'test2',
@@ -24,11 +24,11 @@ const foodMock2 = {
 
 describe('filter food array by desc', () => {
   it('should fn working correct', () => {
-    const foodArray = [foodMock1, foodMock2];
+    const foodArray = [food1, food2];
 
-    const result = filterFoodArrayByDesc(foodArray, foodMock1.description);
+    const result = filterFoodArrayByDesc(foodArray, food1.description);
 
-    expect(result).toContainEqual(foodMock1);
-    expect(result).not.toContainEqual(foodMock2);
+    expect(result).toContainEqual(food1);
+    expect(result).not.toContainEqual(food2);
   });
 });

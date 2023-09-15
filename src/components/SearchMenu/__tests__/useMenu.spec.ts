@@ -5,7 +5,7 @@ import { useMenu } from '@/components/SearchMenu/hook';
 import { useFoodStore } from '@/store/food';
 import { useSearchStore } from '@/store/search';
 
-const foodMock1 = {
+const foodMock = {
   _id: '1',
   number: 10,
   description: 'test1',
@@ -27,12 +27,12 @@ describe('use menu', () => {
     const searchStoreResult = renderHook(() => useSearchStore()).result;
 
     act(() => {
-      result.current.handleOptionSubmit(foodMock1);
+      result.current.handleOptionSubmit(foodMock);
     });
 
     const foodArray = foodStoreResult.current.state.foods;
 
-    expect(foodArray).toContainEqual({ ...foodMock1, _id: '' });
+    expect(foodArray).toContainEqual({ ...foodMock, _id: '' });
     expect(searchStoreResult.current.state.searchFood).toStrictEqual('');
   });
 });
