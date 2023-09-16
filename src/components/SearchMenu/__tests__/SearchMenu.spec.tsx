@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, renderHook } from '@testing-library/react';
+import { render, screen, renderHook, fireEvent } from '@testing-library/react';
 
 import { SearchMenu } from '@/components/SearchMenu';
 import { useFoodStore } from '@/store/food';
@@ -148,6 +148,26 @@ describe('<SearchMenu>', () => {
     const labelElement = screen.getByRole('label');
 
     fireEvent.click(labelElement);
+
+    const foodArray = foodStoreResult.current.state.foods;
+
+    expect(foodArray).toContainEqual({ ...foodMock, _id: '' });
+    expect(searchStoreResult.current.state.searchFood).toStrictEqual('');
+  });
+
+  it('should menu option press enter add food and clear search', () => {
+    render(<SearchMenu {...mockDefaultProps} data={[foodMock]} />);
+
+    const foodStoreResult = renderHook(() => useFoodStore()).result;
+    const searchStoreResult = renderHook(() => useSearchStore()).result;
+
+    const inputRadioElement = screen.getByRole('radio');
+
+    fireEvent.keyPress(inputRadioElement, {
+      key: 'Enter',
+      code: 'Enter',
+      charCode: 13
+    });
 
     const foodArray = foodStoreResult.current.state.foods;
 

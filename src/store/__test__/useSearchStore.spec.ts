@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import { useSearchStore } from '@/store/search';
-import { act } from 'react-dom/test-utils';
 
 describe('use search store', () => {
   it('should initial state correct', () => {

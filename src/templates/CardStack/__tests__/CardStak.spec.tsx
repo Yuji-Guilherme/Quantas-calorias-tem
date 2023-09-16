@@ -1,8 +1,8 @@
 import { render, screen, renderHook } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import { CardStack } from '@/templates/CardStack';
 import { useFoodStore } from '@/store/food';
-import { act } from 'react-dom/test-utils';
 
 const foodMock = {
   _id: '1',

@@ -42,19 +42,33 @@ function Card({
         {description}
       </p>
       <button
+        role="card-close-button"
         onClick={handleRemoveCard}
         className="w-fit justify-self-end tablet:absolute tablet:top-4 tablet:right-5 sm:absolute sm:top-4 sm:right-4"
       >
-        <X className="stroke-dark-purple dark:stroke-medium-blue md:w-5 sm:w-5" />
+        <X
+          role="card-close-icon"
+          className="stroke-dark-purple dark:stroke-medium-blue md:w-5 sm:w-5"
+        />
       </button>
-      <div className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px]s">
-        <button onClick={() => setIsGramsEdited((prev) => !prev)}>
+      <div
+        role="card-edit-container"
+        className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px]"
+      >
+        <button
+          role="card-edit-button"
+          onClick={() => setIsGramsEdited((prev) => !prev)}
+        >
           <Pen
+            role="card-edit-icon"
             data-active={isGramsEdited}
             className="w-[18px] fill-dark-purple stroke-dark-purple dark:stroke-medium-blue dark:fill-medium-blue transition-colors data-[active=true]:fill-transparent dark:data-[active=true]:fill-transparent md:w-4 sm:w-4"
           />
         </button>
-        <div className="flex flex-col mt-4 ml-2 items-start md:ml-0 md-:mt-3 tablet:mt-0 sm:m-0">
+        <div
+          role="card-input-container"
+          className="flex flex-col mt-4 ml-2 items-start md:ml-0 md-:mt-3 tablet:mt-0 sm:m-0"
+        >
           <input
             type="number"
             min={1}
@@ -91,16 +105,22 @@ function Card({
         macro={macroPercentages.fat}
         number={macroNumbers.fat}
       />
-      <div className="card_info sm:ml-2 sm:mb-4">
+      <div role="card-fiber-container" className="card_info sm:ml-2 sm:mb-4">
         <p className="card_info_number">{macroNumbers.fiber}g</p>
         <p className="card_info_desc">fibra{macroNumbers.fiber > 1 && 's'}</p>
       </div>
-      <div className="card_info sm:row-start-2 sm:col-start-2 sm:mt-3 sm:ml-3">
-        <p className="card_info_number z-1 max-w-[84px] sm:mb-[2px]">
+      <div
+        role="card-cal-container"
+        className="card_info sm:row-start-2 sm:col-start-2 sm:mt-3 sm:ml-3"
+      >
+        <p
+          role="card-cal-number"
+          className="card_info_number z-1 max-w-[84px] sm:mb-[2px]"
+        >
           {macroNumbers.calories}
         </p>
         <p className="card_info_desc z-1">cal</p>
-        <span className="absolute z-0">
+        <span role="cal-circle-container" className="absolute z-0">
           <CaloriesCircle
             circleProps={
               circleTwoSizeEmpty || circleOneSizeEmpty || circleSizesAndColors
