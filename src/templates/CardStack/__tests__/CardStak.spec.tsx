@@ -23,7 +23,7 @@ describe('<CardStack>', () => {
   it('should render component visible', () => {
     render(<CardStack />);
 
-    const listElement = screen.getByRole('list');
+    const listElement = screen.getByRole('card-stack-list');
 
     expect(listElement).toBeVisible();
   });
@@ -31,7 +31,7 @@ describe('<CardStack>', () => {
   it('should component has class name', () => {
     render(<CardStack />);
 
-    const listElement = screen.getByRole('list');
+    const listElement = screen.getByRole('card-stack-list');
 
     expect(listElement).toHaveClass(
       'w-[900px] mt-20 mb-10 mx-auto md:w-11/12 md:max-w-[820px] md:mt-16 sm:w-[302px] sm:mt-10 sm:mb-10'
@@ -42,7 +42,7 @@ describe('<CardStack>', () => {
     render(<CardStack />);
     const { result } = renderHook(() => useFoodStore());
 
-    const listElement = screen.getByRole('list');
+    const listElement = screen.getByRole('card-stack-list');
 
     act(() => {
       result.current.actions.addFood(foodMock);

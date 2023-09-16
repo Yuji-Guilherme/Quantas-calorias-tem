@@ -23,7 +23,7 @@ describe('CardStack and Card integration tests', () => {
     render(<CardStack />);
     const { result } = renderHook(() => useFoodStore());
 
-    const listElement = screen.getByRole('list');
+    const listElement = screen.getByRole('card-stack-list');
 
     act(() => {
       result.current.actions.addFood(foodMock);
