@@ -113,7 +113,7 @@ describe('<Card>', () => {
     expect(calCircleContainerElement).toContainElement(calCircleSvgElement);
   });
 
-  it('should component elements have correct classes', () => {
+  it('should component elements have correct classes and attributes', () => {
     render(<Card {...foodMock} />);
 
     const listElement = screen.getByRole('listitem');
@@ -121,6 +121,7 @@ describe('<Card>', () => {
     const closeButtonElement = screen.getByRole('card-close-button');
     const closeIconELement = screen.getByRole('card-close-icon');
     const editContainerElement = screen.getByRole('card-edit-container');
+    const editButtonElement = screen.getByRole('card-edit-button');
     const editIconELement = screen.getByRole('card-edit-icon');
     const inputContainerElement = screen.getByRole('card-input-container');
     const inputElement = screen.getByRole('spinbutton');
@@ -163,7 +164,9 @@ describe('<Card>', () => {
     expect(macroPercent1).toHaveClass('card_info ml-1');
     expect(macroPercent2).toHaveClass('card_info sm:ml-2');
     expect(macroPercent3).toHaveClass('card_info');
-    expect(fiberContainerElement).toHaveClass('card_info sm:ml-2 sm:mb-4');
+    expect(fiberContainerElement).toHaveClass(
+      'card_info mr-4 tablet:mr-0 sm:mr-0 sm:ml-2 sm:mb-4'
+    );
     expect(fiberNumberElement).toHaveClass('card_info_number');
     expect(fiberTextElement).toHaveClass('card_info_desc');
     expect(calContainerElement).toHaveClass(
@@ -174,6 +177,16 @@ describe('<Card>', () => {
     );
     expect(calTextElement).toHaveClass('card_info_desc z-1');
     expect(calCircleContainerElement).toHaveClass('absolute z-0');
+
+    expect(descTextElement).toHaveAttribute('tabIndex', '0');
+    expect(closeButtonElement).toHaveAttribute('title', 'deletar alimento');
+    expect(editContainerElement).toHaveAttribute('tabIndex', '0');
+    expect(editButtonElement).toHaveAttribute(
+      'title',
+      'habilitar/desabilitar edição'
+    );
+    expect(fiberContainerElement).toHaveAttribute('tabIndex', '0');
+    expect(calContainerElement).toHaveAttribute('tabIndex', '0');
   });
 
   it('should s appear in the final of fiber text, if number over 1', () => {

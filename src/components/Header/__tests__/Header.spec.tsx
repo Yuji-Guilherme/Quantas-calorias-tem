@@ -27,18 +27,20 @@ describe('<Header>', () => {
     );
   });
 
-  it('should link has class name', () => {
+  it('should link has class name and attribute', () => {
     render(<Header />);
 
     const linkElement = screen.getByRole('link');
 
     expect(linkElement).toHaveClass('group');
+    expect(linkElement).toHaveAttribute('title', 'repositório do projeto');
+    expect(linkElement).toHaveAttribute('tabIndex', '0');
   });
 
   it('should link has correct href', () => {
     render(<Header />);
 
-    const hrefLink = 'https://github.com/Yuji-Guilherme/quantas-calorias';
+    const hrefLink = 'https://github.com/Yuji-Guilherme/Quantas-calorias-tem';
     const linkElement = screen.getByRole('link');
 
     expect(linkElement).toHaveAttribute('href', hrefLink);

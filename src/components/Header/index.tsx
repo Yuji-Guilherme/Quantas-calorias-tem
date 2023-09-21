@@ -11,7 +11,9 @@ function Header() {
         <ThemeSwitcher />
         <a
           className="group"
-          href="https://github.com/Yuji-Guilherme/quantas-calorias"
+          title="repositório do projeto"
+          tabIndex={0}
+          href="https://github.com/Yuji-Guilherme/Quantas-calorias-tem"
         >
           <Github role="github-logo" className="header_logo" />
         </a>

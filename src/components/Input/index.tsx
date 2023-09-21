@@ -61,6 +61,7 @@ function Input({
             role="remove-btn"
             type="button"
             className="w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1 sm:w-6 dark:border-medium-blue"
+            title="limpar barra de pesquisa"
             onClick={handleClearInput}
           >
             <X
@@ -73,6 +74,7 @@ function Input({
           role="add-btn"
           type="submit"
           className="w-6 flex justify-center"
+          title="adicionar"
           onClick={handleSubmitFood}
         >
           <Plus
@@ -84,6 +86,7 @@ function Input({
           role="show-btn"
           type="button"
           className="w-6 flex justify-center sm:w-4"
+          title="mostrar/esconder menu"
           onClick={toggleShowMenu}
         >
           <ChevronRight

@@ -6,7 +6,7 @@ function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button className="group" onClick={() => toggleTheme()}>
+    <button title="trocar tema" className="group" onClick={() => toggleTheme()}>
       {theme === 'light' && (
         <SunMedium role="sun-icon" className="header_logo" />
       )}

@@ -21,7 +21,7 @@ function MacroPercentage({
   };
 
   return (
-    <div role="macro-percent-container" {...props}>
+    <div role="macro-percent-container" tabIndex={0} {...props}>
       <p className="card_info_number">{`${number}g`}</p>
       <p className="card_info_desc">
         {component[type]}

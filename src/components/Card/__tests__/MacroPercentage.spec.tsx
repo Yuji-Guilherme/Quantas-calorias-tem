@@ -29,9 +29,10 @@ describe('<MacroPercentage>', () => {
     expect(percentContainerElement).toContainElement(percentageTextElement);
   });
 
-  it('should component elements have correct classes and styles', () => {
+  it('should component elements have correct classes, styles and attributes', () => {
     render(<MacroPercentage number={1} macro={macroMock} type="carb" />);
 
+    const containerElement = screen.getByRole('macro-percent-container');
     const numberElement = screen.getByText(/1g/i);
     const macroTextElement = screen.getByText(/carboidrato/i);
     const percentContainerElement = screen.getByRole('percent-container');
@@ -50,6 +51,7 @@ describe('<MacroPercentage>', () => {
     expect(percentageTextElement).toHaveStyle({
       color: macroMock.color
     });
+    expect(containerElement).toHaveAttribute('tabIndex', '0');
   });
 
   it('should s appear in the final of carb text, if number over 1', () => {

@@ -38,11 +38,15 @@ function Card({
       {...props}
       className="w-full h-[200px] rounded-[40px] pt-5 px-7 mt-14 grid grid-cols-6 grid-rows-card bg-medium-blue dark:bg-dark-purple first:mt-0 md:pl-8 md-:h-44 tablet:h-auto tablet:relative tablet:pb-6 tablet:gap-y-8 tablet:grid-cols-3 tablet:grid-rows-card-tablet tablet:place-items-center tablet:rounded-[28px] sm:h-[430px] sm:relative sm:grid-cols-2 sm:grid-rows-card-sm sm:py-5 sm:px-6 sm:rounded-[32px] sm:gap-y-4 sm:mt-10 sm:place-items-center"
     >
-      <p className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap dark:text-medium-blue md:text-lg tablet:col-span-3 tablet:justify-self-start tablet:max-w-[97%]  sm:text-base sm:col-span-2 sm:max-w-[92%] sm:pl-1 t sm:justify-self-start">
+      <p
+        tabIndex={0}
+        className="col-span-5 font-semibold text-xl text-ellipsis text-dark-purple overflow-hidden whitespace-nowrap dark:text-medium-blue md:text-lg tablet:col-span-3 tablet:justify-self-start tablet:max-w-[97%]  sm:text-base sm:col-span-2 sm:max-w-[92%] sm:pl-1 t sm:justify-self-start"
+      >
         {description}
       </p>
       <button
         role="card-close-button"
+        title="deletar alimento"
         onClick={handleRemoveCard}
         className="w-fit justify-self-end tablet:absolute tablet:top-4 tablet:right-5 sm:absolute sm:top-4 sm:right-4"
       >
@@ -53,10 +57,12 @@ function Card({
       </button>
       <div
         role="card-edit-container"
+        tabIndex={0}
         className="h-3/4 flex items-center justify-center gap-2 md:gap-1 sm:gap-[2px]"
       >
         <button
           role="card-edit-button"
+          title="habilitar/desabilitar edição"
           onClick={() => setIsGramsEdited((prev) => !prev)}
         >
           <Pen
@@ -105,12 +111,17 @@ function Card({
         macro={macroPercentages.fat}
         number={macroNumbers.fat}
       />
-      <div role="card-fiber-container" className="card_info sm:ml-2 sm:mb-4">
+      <div
+        role="card-fiber-container"
+        tabIndex={0}
+        className="card_info mr-4 tablet:mr-0 sm:mr-0 sm:ml-2 sm:mb-4"
+      >
         <p className="card_info_number">{macroNumbers.fiber}g</p>
         <p className="card_info_desc">fibra{macroNumbers.fiber > 1 && 's'}</p>
       </div>
       <div
         role="card-cal-container"
+        tabIndex={0}
         className="card_info sm:row-start-2 sm:col-start-2 sm:mt-3 sm:ml-3"
       >
         <p

@@ -10,12 +10,13 @@ describe('<ThemeSwitcher>', () => {
 
     expect(buttonElement).toBeVisible();
   });
-  it('should button has class name', () => {
+  it('should button has class name and attribute', () => {
     render(<ThemeSwitcher />);
 
     const buttonElement = screen.getByRole('button');
 
     expect(buttonElement).toHaveClass('group');
+    expect(buttonElement).toHaveAttribute('title', 'trocar tema');
   });
 
   it('should button contain sun icon', () => {

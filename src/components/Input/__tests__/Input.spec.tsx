@@ -42,7 +42,7 @@ describe('<Input>', () => {
     expect(arrowIconElement).toBeVisible();
   });
 
-  it('should components have correct classes', () => {
+  it('should components have correct classes and attributes', () => {
     const formElement = screen.getByRole('form');
     const SearchIconElement = screen.getByRole('search-icon');
     const inputElement = screen.getByRole('textbox');
@@ -72,6 +72,8 @@ describe('<Input>', () => {
     expect(arrowIconElement).toHaveClass(
       'w-[18px] pt-[1px] stroke-3 stroke-dark-purple rotate-90 transition-transform data-[show=true]:-rotate-90 dark:stroke-medium-blue'
     );
+    expect(addButtonElement).toHaveAttribute('title', 'adicionar');
+    expect(showButtonElement).toHaveAttribute('title', 'mostrar/esconder menu');
   });
 
   it('should form contains correct elements', () => {
@@ -128,7 +130,7 @@ describe('<Input>', () => {
     expect(removeButtonElement).toContainElement(XIconElement);
   });
 
-  it('should remove button and icon have correct classes', () => {
+  it('should remove button and icon have correct classes and attributes', () => {
     const inputElement = screen.getByRole('textbox');
 
     fireEvent.click(inputElement);
@@ -137,6 +139,10 @@ describe('<Input>', () => {
     const removeButtonElement = screen.getByRole('remove-btn');
     const XIconElement = screen.getByRole('x-icon');
 
+    expect(removeButtonElement).toHaveAttribute(
+      'title',
+      'limpar barra de pesquisa'
+    );
     expect(removeButtonElement).toHaveClass(
       'w-8 flex justify-center border-solid border-r-2 border-dark-purple/60 pr-1 sm:w-6 dark:border-medium-blue'
     );
