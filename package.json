@@ -71,7 +71,7 @@
       "<rootDir>/src/main.tsx",
       "<rootDir>/src/App.tsx",
       "<rootDir>/src/hook/useFetch",
-      "<rootDir>/src/services/queryClient.ts",
+      "<rootDir>/src/services",
       "<rootDir>/src/functions/createId"
     ]
   }
