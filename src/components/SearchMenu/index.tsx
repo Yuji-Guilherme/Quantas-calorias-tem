@@ -52,7 +52,7 @@ function SearchMenu({
           {data?.length === 0 && (
             <p
               role="menu-empty-text"
-              className="mt-4 pr-1 pl-4 py-2 max-w-full text-center md:text-sm md:mt-2 sm:text-sm sm:mt-0"
+              className="mt-4 pr-1 pl-4 py-2 max-w-full text-center dark:text-sky-50 md:text-sm md:mt-2 sm:text-sm sm:mt-0"
             >
               nenhum alimento encontrado
             </p>

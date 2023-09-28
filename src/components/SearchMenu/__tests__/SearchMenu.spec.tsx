@@ -120,7 +120,7 @@ describe('<SearchMenu>', () => {
     expect(emptyTextElement).toBeVisible();
     expect(listElement).toContainElement(emptyTextElement);
     expect(emptyTextElement).toHaveClass(
-      'mt-4 pr-1 pl-4 py-2 max-w-full text-center md:text-sm md:mt-2 sm:text-sm sm:mt-0'
+      'mt-4 pr-1 pl-4 py-2 max-w-full text-center dark:text-sky-50 md:text-sm md:mt-2 sm:text-sm sm:mt-0'
     );
     expect(emptyTextElement).toHaveTextContent(/nenhum alimento encontrado/i);
   });
